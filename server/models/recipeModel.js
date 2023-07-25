@@ -19,6 +19,10 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: [true, "please include an image of recipe!"],
   },
+  cookingTime: {
+    type: Number,
+    required: [true, "Please add cooking time!"],
+  },
   submittedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

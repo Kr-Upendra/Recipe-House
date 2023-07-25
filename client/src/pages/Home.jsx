@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="home">
-      <h1>This is home page</h1>
+      <h2 className="home__title">All Recipes</h2>
     </main>
   );
 }

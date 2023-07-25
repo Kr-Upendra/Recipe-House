@@ -277,3 +277,111 @@ h6 {
   letter-spacing: 1px;
   font-size: 1.05rem;
 }
+
+.createrecipe {
+  padding: 1rem;
+  padding-bottom: 3rem;
+  background-image: var(--bodyColor);
+}
+
+.createrecipe__box {
+  margin: 3rem auto 0;
+  width: min(500px, 100%);
+  padding: 1.5rem 0;
+  border-radius: 0.35rem;
+  background-image: linear-gradient(to right, rgb(0, 0, 73), rgb(0, 53, 77));
+  box-shadow: var(--extraShadow);
+}
+
+.create__recipe--title {
+  text-align: center;
+  font-size: 1.35rem;
+  color: var(--textColor);
+}
+
+.recipeform {
+  margin: 2rem 1.5rem;
+}
+
+.recipe__inputs {
+  margin-bottom: 1.5rem;
+}
+
+.recipe__inputs--label {
+  margin-bottom: 0.55rem;
+  margin-left: 0.25rem;
+  display: block;
+  color: var(--textColor);
+}
+
+.recipe__inputs--input {
+  width: 96%;
+  padding: 0.45rem;
+  font-size: 1.15rem;
+  color: var(--primaryWhite);
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 0.45rem;
+  background-color: #17001b;
+}
+
+.recipe__inputs--input:focus,
+.recipe__inputs--textarea:focus {
+  border: 1px dotted orangered;
+}
+
+.recipe__inputs--input[name="ingredients"] {
+  margin-bottom: 0.5rem;
+}
+
+.recipe__inputs--textarea {
+  width: 96%;
+  background-color: #17001b;
+  padding: 0.45rem;
+  resize: none;
+  border-radius: 0.45rem;
+  border: 1px solid transparent;
+  outline: none;
+  font-family: inherit;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  color: var(--primaryWhite);
+}
+
+.more__ingredients {
+  margin: 0.45rem 0 0 0.25rem;
+  padding: 0.45rem 1rem;
+  border-radius: 0.45rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: var(--semiboldWeight);
+  background-color: var(--btnBgColor);
+  color: var(--primaryWhite);
+}
+
+.recipe__inputs--btnbox {
+  text-align: center;
+}
+
+.recipe__inputs--btnbox-submit {
+  margin-top: 0.5rem;
+  padding: 0.65rem 3rem;
+  font-size: 1rem;
+  font-weight: var(--semiboldWeight);
+  background-color: var(--btnBgColor);
+  color: var(--primaryWhite);
+  outline: none;
+  border: 2px solid var(--primaryWhite);
+  border-radius: 3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

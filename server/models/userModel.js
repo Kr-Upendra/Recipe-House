@@ -18,6 +18,12 @@ const userSchema = new mongoose.Schema({
     required: [true, "please create a password!"],
     minLength: 6,
   },
+  savedRecipes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe",
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {

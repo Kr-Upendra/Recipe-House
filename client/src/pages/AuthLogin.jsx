@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useAppBaseUrl } from "../hooks/useGetUserId";
 
 export default function AuthLogin() {
   return (
@@ -16,14 +17,15 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
+  const baseUrl = useAppBaseUrl();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:9090/api/users/login",
-        { username, password }
-      );
+      const response = await axios.post(`${baseUrl}users/login`, {
+        username,
+        password,
+      });
 
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userId", response.data.userId);

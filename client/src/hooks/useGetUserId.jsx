@@ -2,6 +2,10 @@ export const useGetUserId = () => {
   return window.localStorage.getItem("userId");
 };
 
+export const useAppBaseUrl = () => {
+  return "https://recipehouse.onrender.com/api/";
+};
+
 export const recipeBaseUrl = () => {
-  return "http://127.0.0.1:9090/api/recipes/";
+  return "https://recipehouse.onrender.com/api/recipes/";
 };

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useAppBaseUrl } from "../hooks/useGetUserId";
 
 export default function AuthSignup() {
   return (
@@ -14,18 +15,16 @@ export function Signup() {
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const baseUrl = useAppBaseUrl();
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:9090/api/users/signup",
-        {
-          fullname,
-          username,
-          password,
-        }
-      );
+      const response = await axios.post(`${baseUrl}users/signup`, {
+        fullname,
+        username,
+        password,
+      });
 
       alert(response.data.message);
       setFullname("");

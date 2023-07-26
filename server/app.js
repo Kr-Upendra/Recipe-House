@@ -1,4 +1,4 @@
-import RateLimit from "express-rate-limit";
+
 import express from "express";
 import cors from "cors";
 import compression from "compression";
@@ -12,17 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(compression());
 
-const limiter = RateLimit({
-  windowMs: 1 * 60 * 1000,
-  max: 20,
-});
-app.use(limiter);
 
-const port = process.env.PORT;
-const db = process.env.DATABASE_URI.replace(
-  "<password>",
-  process.env.DATABASE_PASSWORD
-);
 
 app.use("/api/users/", userRouter);
 app.use("/api/recipes/", recipeRouter);

@@ -28,6 +28,10 @@ const recipeSchema = new mongoose.Schema({
     ref: "User",
     required: [true, "Recipe must include name of submitter!"],
   },
+  owner: {
+    type: String,
+    required: [true, "please include name of recipe creator!"],
+  },
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);

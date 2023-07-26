@@ -12,17 +12,34 @@ const getAllRecipe = async (req, res) => {
       doc: { recipes },
     });
   } catch (err) {
-    res.status(404).json({
+    res.status(500).json({
       status: "fail",
-      message: err.message,
-      error: err,
+      message: "SOMETHING WENT VERY WRONG!",
     });
   }
 };
 
 const createRecipe = async (req, res) => {
   try {
-    const recipes = await Recipe.create(req.body);
+    const owner = req.user.fullname;
+    const {
+      name,
+      ingredients,
+      instructions,
+      imageUrl,
+      cookingTime,
+      submittedBy,
+    } = req.body;
+
+    const recipes = await Recipe.create({
+      name,
+      ingredients,
+      instructions,
+      imageUrl,
+      submittedBy,
+      cookingTime,
+      owner,
+    });
 
     res.status(201).json({
       status: "success",
@@ -30,10 +47,10 @@ const createRecipe = async (req, res) => {
       doc: { recipes },
     });
   } catch (err) {
-    res.status(400).json({
+    console.log({ error: err });
+    res.status(500).json({
       status: "fail",
-      message: err.message,
-      error: err,
+      message: "SOMETHING WENT VERY WRONG! PLEASE TRY AGAIN!",
     });
   }
 };
@@ -43,7 +60,7 @@ const saveRecipes = async (req, res) => {
     const recipe = await Recipe.findById(req.body.recipeId);
     const user = await User.findById(req.body.userId);
 
-    if (user.savedRecipes.length > 10)
+    if (user.savedRecipes.length > 30)
       return res.status(400).json({
         status: "fail",
         message:
@@ -65,10 +82,9 @@ const saveRecipes = async (req, res) => {
       document: { savedRecipes: user.savedRecipes },
     });
   } catch (err) {
-    res.status(404).json({
+    res.status(500).json({
       status: "fail",
-      message: err.message,
-      error: err,
+      message: "SOMETHING WENT VERY WRONG! PLEASE TRY AGAIN!",
     });
   }
 };
@@ -83,17 +99,17 @@ const getAllIds = async (req, res) => {
       doc: { savedRecipes: user?.savedRecipes },
     });
   } catch (err) {
-    res.status(404).json({
+    res.status(500).json({
       status: "fail",
-      message: err.message,
-      error: err,
+      message: "SOMETHING WENT VERY WRONG! PLEASE TRY AGAIN!",
     });
   }
 };
 
 const getSavedRecipes = async (req, res) => {
   try {
-    const user = await User.findById(req.body.userId);
+    console.log(req.params);
+    const user = await User.findById(req.params.userId);
     const savedRecipes = await Recipe.find({
       _id: { $in: user.savedRecipes },
     });
@@ -103,10 +119,9 @@ const getSavedRecipes = async (req, res) => {
       doc: { savedRecipes },
     });
   } catch (err) {
-    res.status(404).json({
+    res.status(500).json({
       status: "fail",
-      message: err.message,
-      error: err,
+      message: "SOMETHING WENT VERY WRONG! PLEASE TRY AGAIN!",
     });
   }
 };

@@ -441,12 +441,16 @@ input::-webkit-inner-spin-button {
   border-bottom-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .save[data-saved="true"] {
   background-color: green;
   color: var(--primaryWhite);
   cursor: default;
+  user-select: none;
+  cursor: not-allowed;
 }
 
 .recipe__details {
@@ -505,6 +509,86 @@ input::-webkit-inner-spin-button {
   margin-left: 0.5rem;
 }
 
+.features {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  z-index: 5;
+}
+
+.features__linkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.45rem;
+}
+
+.features__linkbox--links {
+  padding: 0.65rem 0.35rem;
+  background-color: var(--textColor);
+  margin-bottom: 0.35rem;
+  width: 100%;
+  text-align: center;
+  border-radius: 0.35rem;
+  font-weight: var(--semiboldWeight);
+  color: var(--primaryBlack);
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.features__linkbox--links:hover {
+  transform: translateY(-2px);
+  background-color: var(--primaryWhite);
+}
+
+.feature__box {
+  position: absolute;
+  bottom: 3%;
+  right: 115%;
+  border-radius: 0.35rem;
+  padding: 1rem;
+  width: 180px;
+  background-color: var(--textColor);
+  display: none;
+}
+
+::marker {
+  font-size: 20px;
+  color: var(--btnBgColor);
+}
+
+.feature__box ul {
+  margin-left: 1rem;
+}
+
+.feature__box ul li {
+  line-height: 0;
+  margin-bottom: 0.5rem;
+}
+
+.feature__box ul li h5 {
+  font-size: 0.8rem;
+  color: var(--primaryBlack);
+}
+
+.feature__box--contribute span {
+  font-weight: var(--semiboldWeight);
+  color: var(--primaryBlack);
+}
+
+.arrow {
+  position: absolute;
+  right: -9%;
+  bottom: 9%;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--textColor);
+  border-style: solid;
+}
+
+.feature__box[data-showfeatures="true"] {
+  display: block;
+}
+
 @media (max-width: 1000px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
@@ -520,4 +604,17 @@ input::-webkit-inner-spin-button {
     grid-template-columns: repeat(1, 1fr);
     margin: 1.5rem 0.75rem;
   }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0a000c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--textColor);
+  border-radius: 10px;
 }

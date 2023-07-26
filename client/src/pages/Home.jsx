@@ -2,24 +2,14 @@ import RecipeCard from "../components/RecipeCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { recipeBaseUrl, useGetUserId } from "../hooks/useGetUserId";
+import { useCookies } from "react-cookie";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const baseUrl = recipeBaseUrl();
   const userId = useGetUserId();
-
-  const saveRecipe = async (recipeId, userId) => {
-    try {
-      const response = await axios.put(baseUrl, { recipeId, userId });
-      if (response.data.status === "success") alert("Recipe saved!");
-    } catch (err) {
-      alert(
-        err.response.data.message ||
-          "SOMETHING WENT WRONG! PLEASE TRY AGAIN LETOR!"
-      );
-    }
-  };
+  const [cookies, _] = useCookies(["access_token"]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -27,24 +17,42 @@ export default function Home() {
         const response = await axios.get(baseUrl);
         setRecipes(response.data.doc);
       } catch (err) {
-        console.log(err.response);
+        alert(err.response.data.message);
       }
     };
 
     const fetchSavedRecipes = async () => {
       try {
-        const response = await axios.get(
-          `${baseUrl}savedRecipes/ids/${userId}`
-        );
-        setSavedRecipes(response.data.doc.savedRecipes);
+        if (userId) {
+          const response = await axios.get(
+            `${baseUrl}savedRecipes/ids/${userId}`
+          );
+          setSavedRecipes(response.data.doc.savedRecipes);
+        }
       } catch (err) {
-        console.log(err.response);
+        alert(err.response.data.message);
       }
     };
 
     fetchRecipes();
-    fetchSavedRecipes();
-  }, [savedRecipes]);
+    if (cookies.access_token) fetchSavedRecipes();
+  }, []);
+
+  const saveRecipe = async (recipeId, userId) => {
+    try {
+      const response = await axios.put(
+        baseUrl,
+        { recipeId, userId },
+        { headers: { Authorization: `Bearer ${cookies.access_token}` } }
+      );
+      if (response.data.status === "success") {
+        alert("Recipe saved!");
+        setSavedRecipes(response.data.document.savedRecipes);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const finalRecipes = recipes?.recipes || [];
 
@@ -62,10 +70,7 @@ export default function Home() {
   return (
     <main className="home">
       <h2 className="home__title">All Recipes</h2>
-      <div className="container">
-        {/* <RecipeCard /> */}
-        {recipeElement}
-      </div>
+      <div className="container">{recipeElement}</div>
     </main>
   );
 }

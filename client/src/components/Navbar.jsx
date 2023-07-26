@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [cookies, setCookies] = useCookies(["access_token"]);
+  const [shownav, setShownav] = useState(false);
 
   const navigate = useNavigate();
 
@@ -11,12 +12,16 @@ export default function Navbar() {
     setCookies("access_token", "");
     window.localStorage.removeItem("userId");
     window.localStorage.removeItem("currentUser");
+    hideNavbar();
     navigate("/auth/login");
   };
 
-  const [shownav, setShownav] = useState(false);
   const handleNavbar = () => {
     setShownav((prevValue) => !prevValue);
+  };
+
+  const hideNavbar = (e) => {
+    setShownav(false);
   };
 
   return (
@@ -25,9 +30,9 @@ export default function Navbar() {
         Recipe App
       </Link>
 
-      {window.localStorage.getItem("currentUser") ? (
+      {cookies.access_token ? (
         <span className="navbar__currentuser">
-          Hello {window.localStorage.getItem("currentUser")}
+          Hello {window.localStorage.getItem("currentUser").split(" ")[0]}
         </span>
       ) : (
         ""
@@ -42,23 +47,39 @@ export default function Navbar() {
         <div className="navbar__menu--bars"></div>
       </div>
       <div className="navbar__links" data-shownav={shownav}>
-        <Link to="/" className="navbar__links--link">
+        <Link to="/" onClick={hideNavbar} className="navbar__links--link">
           Home
         </Link>
-        <Link to="/saved-recipe" className="navbar__links--link">
-          Saved Recipe
-        </Link>
-        <Link to="/create-recipe" className="navbar__links--link">
+
+        <Link
+          onClick={hideNavbar}
+          to={!cookies.access_token ? "/auth/signup" : "/create-recipe"}
+          className="navbar__links--link"
+        >
           Create Recipe
         </Link>
+
         {!cookies.access_token ? (
-          <Link to="/auth/signup" className="navbar__links--link">
+          <Link
+            to="/auth/signup"
+            onClick={hideNavbar}
+            className="navbar__links--link"
+          >
             Sign up
           </Link>
         ) : (
-          <button onClick={logout} className="el__logoutbtn">
-            Logout
-          </button>
+          <span>
+            <Link
+              to={!cookies.access_token ? "/" : "/saved-recipe"}
+              onClick={hideNavbar}
+              className="navbar__links--link"
+            >
+              Saved Recipe
+            </Link>
+            <button onClick={logout} className="el__logoutbtn">
+              Logout
+            </button>
+          </span>
         )}
       </div>
     </nav>

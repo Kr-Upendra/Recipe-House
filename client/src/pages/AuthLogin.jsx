@@ -32,8 +32,10 @@ export function Login() {
       setUsername("");
       setPassword("");
     } catch (err) {
-      console.error(err.response);
-      alert(err.response.data.message || "Some went wrong!");
+      alert(
+        err.response.data.message ||
+          "SOME ERROR OCCURED! PLEASE TRY AGAIN LETER!"
+      );
     }
   };
 

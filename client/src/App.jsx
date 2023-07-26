@@ -6,6 +6,7 @@ import CreateRecipe from "./pages/CreateRecipe";
 import Navbar from "./components/Navbar";
 import AuthLogin from "./pages/AuthLogin";
 import AuthSignup from "./pages/AuthSignup";
+import NotImpletedFeatures from "./components/NotImpletedFeatures";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/auth/login" element={<AuthLogin />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
         </Routes>
+        <NotImpletedFeatures />
       </Router>
     </main>
   );

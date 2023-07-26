@@ -1,5 +1,6 @@
 import User from "../models/userModel.js";
 import jwt from "jsonwebtoken";
+import { promisify } from "util";
 
 const signup = async (req, res) => {
   try {
@@ -8,7 +9,7 @@ const signup = async (req, res) => {
 
     if (user)
       return res.status(400).json({
-        status: fail,
+        status: "fail",
         message: "User already exist!",
       });
 
@@ -19,10 +20,9 @@ const signup = async (req, res) => {
       message: "Thanks for signup! kindly login now",
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: "fail",
-      message: err.message,
-      error: err,
+      message: "SOME THING WENT VERY WRONG!",
     });
   }
 };
@@ -34,17 +34,20 @@ const login = async (req, res) => {
     if (!username || !password)
       return res.status(400).json({
         status: "fail",
-        message: "Please provide email and password!",
+        message: "Please provide a valid username and password!",
       });
 
     const user = await User.findOne({ username });
+
     if (!user)
       return res.status(401).json({
         status: "fail",
-        message: "Invalid username of password!",
+        message: "Invalid username or password!",
       });
 
     const isPasswordValid = await user.correctPassword(password, user.password);
+
+    console.log(isPasswordValid);
 
     if (!isPasswordValid)
       return res.status(401).json({
@@ -52,7 +55,7 @@ const login = async (req, res) => {
         message: "Invalid username or password!",
       });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
       expiresIn: "10d",
     });
 
@@ -64,15 +67,47 @@ const login = async (req, res) => {
       fullname: user.fullname,
     });
   } catch (err) {
-    res.status(400).json({
-      status: "fail",
-      message: err.message,
-      error: err,
+    res.status(500).json({
+      status: "error",
+      message: "An error occurred while processing your request.",
     });
   }
+};
+
+const protectRoute = async (req, res, next) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+
+  if (!token)
+    return res.status(401).json({
+      status: "fail",
+      message: "You are not logged! Please log in to get access!",
+    });
+
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+  const freshUser = await User.findById(decoded.userId).select("-password");
+
+  if (!freshUser)
+    return res.status(401).json({
+      status: "fail",
+      message: "The user belonging to this token does no longer exist",
+    });
+
+  decoded.fullname = freshUser.fullname;
+
+  req.user = decoded;
+
+  next();
 };
 
 export default {
   signup,
   login,
+  protectRoute,
 };

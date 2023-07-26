@@ -3,7 +3,9 @@ import User from "../models/userModel.js";
 
 const getAllRecipe = async (req, res) => {
   try {
-    const recipes = await Recipe.find();
+    const recipes = await Recipe.find()
+      .populate("submittedBy", "fullname -_id")
+      .exec();
     res.status(200).json({
       status: "success",
       result: recipes.length,
@@ -73,7 +75,7 @@ const saveRecipes = async (req, res) => {
 
 const getAllIds = async (req, res) => {
   try {
-    const user = await User.findById(req.body.userId);
+    const user = await User.findById(req.params.userId);
 
     res.status(200).json({
       status: "success",

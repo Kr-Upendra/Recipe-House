@@ -33,6 +33,7 @@ export function Login() {
       setPassword("");
     } catch (err) {
       console.error(err.response);
+      alert(err.response.data.message || "Some went wrong!");
     }
   };
 
@@ -60,7 +61,7 @@ export function Login() {
             required
             id="password"
             className="form__inputs--input"
-            placeholder="Create your password"
+            placeholder="Enter your password"
             autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

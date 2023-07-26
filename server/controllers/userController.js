@@ -41,7 +41,7 @@ const login = async (req, res) => {
     if (!user)
       return res.status(401).json({
         status: "fail",
-        message: "User does not exist!",
+        message: "Invalid username of password!",
       });
 
     const isPasswordValid = await user.correctPassword(password, user.password);

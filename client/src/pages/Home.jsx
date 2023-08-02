@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { recipeBaseUrl, useGetUserId } from "../hooks/useGetUserId";
 import { useCookies } from "react-cookie";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -54,7 +55,7 @@ export default function Home() {
     }
   };
 
-  const finalRecipes = recipes?.recipes || [];
+  const finalRecipes = recipes.recipes || [];
 
   const recipeElement = finalRecipes.map((recipe) => {
     return (
@@ -67,10 +68,14 @@ export default function Home() {
     );
   });
 
+  console.log(recipeElement.length);
+
   return (
     <main className="home">
       <h2 className="home__title">All Recipes</h2>
-      <div className="container">{recipeElement}</div>
+      <div className="container" data-isloading={recipeElement.length === 0}>
+        {recipeElement.length === 0 ? <Loading /> : recipeElement}
+      </div>
     </main>
   );
 }

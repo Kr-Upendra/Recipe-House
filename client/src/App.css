@@ -403,6 +403,10 @@ input::-webkit-inner-spin-button {
   row-gap: 3rem;
 }
 
+.container[data-isloading="true"] {
+  place-content: center;
+}
+
 .card {
   border-radius: 0.5rem;
   box-shadow: var(--lightShadow);
@@ -587,6 +591,12 @@ input::-webkit-inner-spin-button {
 
 .feature__box[data-showfeatures="true"] {
   display: block;
+}
+
+.loading {
+  color: var(--primaryWhite);
+  font-size: 2rem;
+  text-align: center;
 }
 
 @media (max-width: 1000px) {

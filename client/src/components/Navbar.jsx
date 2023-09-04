@@ -61,14 +61,14 @@ export default function Navbar() {
 
         {!cookies.access_token ? (
           <Link
-            to="/auth/signup"
+            to="/auth/login"
             onClick={hideNavbar}
             className="navbar__links--link"
           >
-            Sign up
+            Sign in
           </Link>
         ) : (
-          <span>
+          <>
             <Link
               to={!cookies.access_token ? "/" : "/saved-recipe"}
               onClick={hideNavbar}
@@ -79,7 +79,7 @@ export default function Navbar() {
             <button onClick={logout} className="el__logoutbtn">
               Logout
             </button>
-          </span>
+          </>
         )}
       </div>
     </nav>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { recipeBaseUrl, useGetUserId } from "../hooks/useGetUserId";
 import { useCookies } from "react-cookie";
 import Loading from "../components/Loading";
+import Card from "../components/Card";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -51,7 +52,7 @@ export default function Home() {
         setSavedRecipes(response.data.document.savedRecipes);
       }
     } catch (err) {
-      console.log(err);
+      alert("something went very! please try again lator");
     }
   };
 
@@ -59,16 +60,14 @@ export default function Home() {
 
   const recipeElement = finalRecipes.map((recipe) => {
     return (
-      <RecipeCard
+      <Card
         key={recipe._id}
         {...recipe}
-        saveRecipe={saveRecipe}
         savedRecipesId={savedRecipes}
+        bookmarkRecipe={saveRecipe}
       />
     );
   });
-
-  console.log(recipeElement.length);
 
   return (
     <main className="home">

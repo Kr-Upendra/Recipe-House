@@ -23,10 +23,9 @@ export function Login() {
     e.preventDefault();
     const loginUrl = baseUrl + "users/login";
     try {
-      const response = await axios.post(loginUrl, {
-        email,
-        password,
-      });
+      const response = await axios.post(loginUrl, { email, password });
+
+      console.log(response);
 
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userId", response.data.userId);

@@ -8,7 +8,7 @@
   --semiboldWeight: 600;
   --boldWeight: 700;
 
-  --bodyColor: linear-gradient(to right, #231925, #0a000c);
+  --bodyColor: linear-gradient(to right, #252525, #141414);
   --navbarColor: linear-gradient(to right, rgb(0, 0, 0), rgb(19, 29, 19));
   --textColor: #dbdbdb;
   --primaryWhite: #ffffff;
@@ -18,8 +18,8 @@
   --borderColor: #d365d367;
   --placeholderColr: #beeaff9f;
 
-  --lightShadow: #6313831c 0 7px 15px 0;
-  --extraShadow: #00000040 0 13px 25px 0;
+  --lightShadow: #0000001c 0 7px 15px 0;
+  --extraShadow: #00000025 0 13px 25px 0;
 }
 
 *,
@@ -203,17 +203,17 @@ h6 {
 .signup,
 .login {
   margin: 3rem auto 0;
-  width: min(400px, 100%);
+  width: min(380px, 100%);
   padding: 1.5rem 1rem;
   border-radius: 0.35rem;
-  background-color: var(--textColor);
+  background-color: rgb(89, 72, 105);
   box-shadow: var(--extraShadow);
   text-align: center;
 }
 
 .el__title {
   font-size: 1.3rem;
-  color: var(--primaryBlack);
+  color: var(--primaryWhite);
 }
 
 .form {
@@ -229,7 +229,7 @@ h6 {
   text-align: left;
   margin-bottom: 0.25rem;
   font-size: 0.85rem;
-  color: var(--primaryBlack);
+  color: var(--textColor);
   font-weight: var(--semiboldWeight);
   letter-spacing: 1px;
   margin-left: 0.5rem;
@@ -274,8 +274,13 @@ h6 {
   text-transform: uppercase;
 }
 
+.que__box--text {
+  color: var(--textColor);
+}
+
 .que__box--link {
-  color: var(--btnBgColor);
+  color: var(--primaryWhite);
+  text-decoration: underline;
   font-weight: var(--semiboldWeight);
   letter-spacing: 1px;
   font-size: 1.05rem;
@@ -414,7 +419,7 @@ input::-webkit-inner-spin-button {
 
 .card {
   border-radius: 0.5rem;
-  background-color: #2e22306e;
+  background-color: #3131316e;
   backdrop-filter: blur(5px);
   cursor: default;
   transition: all 0.45s ease-in-out;

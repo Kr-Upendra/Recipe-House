@@ -13,7 +13,7 @@ export default function AuthLogin() {
 }
 
 export function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ export function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(`${baseUrl}users/login`, {
-        username,
+        email,
         password,
       });
 
@@ -31,7 +31,7 @@ export function Login() {
       window.localStorage.setItem("userId", response.data.userId);
       window.localStorage.setItem("currentUser", response.data.fullname);
       navigate("/");
-      setUsername("");
+      setEmail("");
       setPassword("");
     } catch (err) {
       alert(
@@ -46,16 +46,16 @@ export function Login() {
       <h3 className="el__title">Login now to get access</h3>
       <form onSubmit={handleFormSubmit} className="form">
         <div className="form__inputs">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             required
-            id="username"
+            id="email"
             className="form__inputs--input"
-            placeholder="Enter your username"
+            placeholder="Enter your Email"
             autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form__inputs">

@@ -13,7 +13,7 @@ export default function AuthSignup() {
 
 export function Signup() {
   const [fullname, setFullname] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const baseUrl = useAppBaseUrl();
 
@@ -22,13 +22,13 @@ export function Signup() {
     try {
       const response = await axios.post(`${baseUrl}users/signup`, {
         fullname,
-        username,
+        email,
         password,
       });
 
       alert(response.data.message);
       setFullname("");
-      setUsername("");
+      setEmail("");
       setPassword("");
     } catch (err) {
       console.error(err.data);
@@ -53,16 +53,16 @@ export function Signup() {
           />
         </div>
         <div className="form__inputs">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             required
-            id="username"
+            id="email"
             className="form__inputs--input"
-            placeholder="Enter your username"
+            placeholder="Enter your email"
             autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form__inputs">

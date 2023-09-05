@@ -25,8 +25,6 @@ export function Login() {
     try {
       const response = await axios.post(loginUrl, { email, password });
 
-      console.log(response);
-
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userId", response.data.userId);
       window.localStorage.setItem("currentUser", response.data.fullname);
@@ -34,7 +32,6 @@ export function Login() {
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.log(err);
       alert(
         err.response.data.message ||
           "SOME ERROR OCCURED! PLEASE TRY AGAIN LETER!"

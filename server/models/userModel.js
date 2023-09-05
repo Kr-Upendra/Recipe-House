@@ -34,9 +34,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  console.log(this.password);
   const encryptedPassword = await bcrypt.hash(this.password, 12);
-  console.log(encryptedPassword);
   this.password = encryptedPassword;
   next();
 });

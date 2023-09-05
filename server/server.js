@@ -9,6 +9,8 @@ const db = process.env.DATABASE_URI.replace(
   process.env.DATABASE_PASSWORD
 );
 
+// const db = process.env.DATABASE;
+
 mongoose
   .connect(db)
   .then(console.log("mongo connected!"))

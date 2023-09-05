@@ -21,8 +21,9 @@ export function Login() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    const loginUrl = baseUrl + "users/login";
     try {
-      const response = await axios.post(`${baseUrl}users/login`, {
+      const response = await axios.post(loginUrl, {
         email,
         password,
       });
@@ -34,6 +35,7 @@ export function Login() {
       setEmail("");
       setPassword("");
     } catch (err) {
+      console.log(err);
       alert(
         err.response.data.message ||
           "SOME ERROR OCCURED! PLEASE TRY AGAIN LETER!"

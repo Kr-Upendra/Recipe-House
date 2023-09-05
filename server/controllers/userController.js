@@ -4,8 +4,8 @@ import { promisify } from "util";
 
 const signup = async (req, res) => {
   try {
-    const { fullname, username, password } = req.body;
-    const user = await User.findOne({ username });
+    const { fullname, email, password } = req.body;
+    const user = await User.findOne({ email });
 
     if (user)
       return res.status(400).json({
@@ -13,7 +13,7 @@ const signup = async (req, res) => {
         message: "User already exist!",
       });
 
-    await User.create({ fullname, username, password });
+    await User.create({ fullname, email, password });
 
     res.status(201).json({
       status: "success",
@@ -29,20 +29,20 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!username || !password)
+    if (!email || !password)
       return res.status(400).json({
         status: "fail",
-        message: "Please provide a valid username and password!",
+        message: "Please provide a valid email and password!",
       });
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user)
       return res.status(401).json({
         status: "fail",
-        message: "Invalid username or password!",
+        message: "Invalid email or password!",
       });
 
     const isPasswordValid = await user.correctPassword(password, user.password);
@@ -50,7 +50,7 @@ const login = async (req, res) => {
     if (!isPasswordValid)
       return res.status(401).json({
         status: "fail",
-        message: "Invalid username or password!",
+        message: "Invalid email or password!",
       });
 
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
@@ -68,6 +68,7 @@ const login = async (req, res) => {
     res.status(500).json({
       status: "error",
       message: "An error occurred while processing your request.",
+      error: err,
     });
   }
 };

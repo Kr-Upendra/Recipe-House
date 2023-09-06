@@ -41,11 +41,13 @@ body {
 
 .app {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background-image: var(--bodyColor);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  padding-bottom: 1rem;
 }
 
 input,
@@ -153,47 +155,6 @@ h6 {
 
 .navbar__menu[data-shownav="true"] .navbar__menu--bars:nth-child(2) {
   opacity: 0;
-}
-
-@media (max-width: 800px) {
-  .navbar__links {
-    border-right: 1px solid var(--borderColor);
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 70%;
-    height: 100vh;
-    background-color: #0a000caf;
-    backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: var(--extraShadow);
-    transition: top 0.4s ease-in-out;
-    z-index: 1;
-  }
-
-  .navbar__links[data-shownav="true"] {
-    top: 0;
-  }
-
-  .navbar__links--link {
-    margin: 0.75rem 0;
-    border: 1px dotted var(--borderColor);
-    border-radius: 0;
-    padding: 0.55rem 0;
-    width: 120px;
-    text-align: center;
-  }
-
-  .el__logoutbtn {
-    margin: 1rem 0 0;
-  }
-
-  .navbar__menu {
-    display: block;
-  }
 }
 
 .auth {
@@ -604,9 +565,204 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
+/* RECIPE DETAIL PAGE */
+
+.dContainer {
+  margin: 2rem 0;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+/* RECIPE DETAIL */
+.rDetails {
+  border-radius: 0.25rem;
+  background-color: #202020dc;
+  backdrop-filter: blur(5px);
+  padding: 2rem 2rem;
+  width: 55%;
+}
+
+.rDetails__title {
+  margin-bottom: 0.75rem;
+}
+
+.el-title {
+  color: var(--primaryWhite);
+  letter-spacing: 1px;
+  font-weight: var(--boldWeight);
+}
+
+.rDetails__chefTime {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rDetails__chefTime--chef {
+  display: flex;
+  align-items: center;
+}
+
+.el-chefimg {
+  width: 50px;
+}
+
+.el-chefname {
+  margin-left: 0.8rem;
+  text-decoration: underline;
+  color: var(--textColor);
+  letter-spacing: 1px;
+}
+
+.el-cookingtime {
+  font-size: 1rem;
+  color: var(--textColor);
+}
+
+.devider {
+  margin: 0.2rem 0 0;
+  width: 100%;
+  height: 1px;
+  background-color: #4d4d4d;
+}
+
+.rDetails__image {
+  margin: 3rem 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.el-recipeimg {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.el-iheading {
+  color: var(--primaryWhite);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.rDetails__ingradients {
+  margin-bottom: 3rem;
+}
+
+.rDetails__ingradients--list {
+  margin-left: 2.5rem;
+  list-style-type: square;
+}
+
+.el-initem {
+  font-size: 1rem;
+  color: var(--textColor);
+  letter-spacing: 1px;
+  margin-bottom: 0.35rem;
+  text-transform: capitalize;
+}
+
+::marker {
+  color: var(--textColor);
+  font-size: 1.5rem;
+}
+
+.rDetails__instructions {
+  margin-bottom: 1rem;
+}
+
+.rDetails__instructions--steps {
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+.el-steps {
+  font-size: 1rem;
+  color: var(--textColor);
+  line-height: 1.55;
+  letter-spacing: 1px;
+  font-weight: var(--mediunWeight);
+}
+
+/* RESTOURENT DETAIL */
+.rOthers {
+  width: 40%;
+  height: max-content;
+}
+
 @media (max-width: 1000px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dContainer {
+    flex-direction: column;
+  }
+
+  .rDetails,
+  .rOthers {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar__links {
+    border-right: 1px solid var(--borderColor);
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    background-color: #0a000caf;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: var(--extraShadow);
+    transition: top 0.4s ease-in-out;
+    z-index: 1;
+  }
+
+  .navbar__links[data-shownav="true"] {
+    top: 0;
+  }
+
+  .navbar__links--link {
+    margin: 0.75rem 0;
+    border: 1px dotted var(--borderColor);
+    border-radius: 0;
+    padding: 0.55rem 0;
+    width: 120px;
+    text-align: center;
+  }
+
+  .el__logoutbtn {
+    margin: 1rem 0 0;
+  }
+
+  .navbar__menu {
+    display: block;
+  }
+
+  .dContainer {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .rDetails,
+  .rOthers {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .rDetails {
+    padding: 2rem 1rem;
+  }
+
+  .el-title {
+    line-height: 1.4;
   }
 }
 

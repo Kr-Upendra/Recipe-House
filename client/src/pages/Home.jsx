@@ -15,7 +15,9 @@ export default function Home() {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get(baseUrl);
+        const response = await axios.get(
+          `${baseUrl}?fields=name,owner,slug,cookingTime,imageUrl`
+        );
         setRecipes(response.data.doc);
       } catch (err) {
         alert(err.response.data.message);

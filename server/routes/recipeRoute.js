@@ -9,6 +9,8 @@ router
   .post(authController.protectRoute, recipeController.createRecipe)
   .put(authController.protectRoute, recipeController.saveRecipes);
 
+router.route("/:slug").get(recipeController.getARecipe);
+
 router
   .route("/:id")
   .patch(

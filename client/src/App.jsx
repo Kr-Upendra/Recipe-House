@@ -22,11 +22,9 @@ function App() {
               <Route path="auth/login" element={<AuthLogin />} />
             </Route>
             <Route path="recipe" element={<RecipeLayout />}>
-              <Route path="recipe-detail/:slug" element={<RecipeDetail />} />
+              <Route path="recipe-details/:slug" element={<RecipeDetail />} />
               <Route path="create-recipe" element={<CreateRecipe />} />
-              <Route path="saved-recipes" element={<SavedRecipe />}>
-                <Route path=":slug" element={<RecipeDetail />} />
-              </Route>
+              <Route path="saved-recipes" element={<SavedRecipe />} />
             </Route>
           </Route>
         </Routes>

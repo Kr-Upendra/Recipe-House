@@ -3,9 +3,17 @@ import { useGetUserId } from "../hooks/useGetUserId";
 import { useCookies } from "react-cookie";
 
 const Card = (props) => {
-  const { imageUrl, name, cookingTime, owner, savedRecipesId, bookmarkRecipe } =
-    props;
+  const {
+    slug,
+    imageUrl,
+    name,
+    cookingTime,
+    owner,
+    savedRecipesId,
+    bookmarkRecipe,
+  } = props;
   const userId = useGetUserId();
+
   const [cookies, _] = useCookies(["access_token"]);
   const isBookmarked = (id) => savedRecipesId.includes(id);
 
@@ -37,14 +45,19 @@ const Card = (props) => {
           </div>
         )}
       </div>
-      <CardDetails title={name} cookTime={cookingTime} addedby={owner} />
+      <CardDetails
+        title={name}
+        cookTime={cookingTime}
+        addedby={owner}
+        slug={slug}
+      />
     </div>
   );
 };
 
 export default Card;
 
-export const CardDetails = ({ title, cookTime, addedby }) => {
+export const CardDetails = ({ title, cookTime, addedby, slug }) => {
   return (
     <>
       <div className="card__details">
@@ -59,7 +72,7 @@ export const CardDetails = ({ title, cookTime, addedby }) => {
       <div className="card__viewbtnbox">
         <Link
           className="card__viewbtnbox--btn"
-          to="recipe/recipe-details/hello-world"
+          to={`recipe/recipe-details/${slug}`}
         >
           Read Full
         </Link>

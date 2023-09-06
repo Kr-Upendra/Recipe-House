@@ -27,6 +27,30 @@ const getAllRecipe = async (req, res) => {
   }
 };
 
+const getARecipe = async (req, res) => {
+  try {
+    const slug = req.params.slug;
+    const recipe = await Recipe.findOne({ slug }).select("-__v");
+
+    if (!recipe)
+      return res.status(404).json({
+        status: "fail",
+        message: "Recipe does not exist!",
+      });
+
+    res.status(200).json({
+      status: "success",
+      doc: { recipe },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: "Something went very wrong!",
+      error: err,
+    });
+  }
+};
+
 const createRecipe = async (req, res) => {
   try {
     const owner = req.user.fullname;
@@ -187,4 +211,5 @@ export default {
   getSavedRecipes,
   updateRecipe,
   deleteRecipe,
+  getARecipe,
 };

@@ -3,9 +3,16 @@ import User from "../models/userModel.js";
 
 const getAllRecipe = async (req, res) => {
   try {
-    const recipes = await Recipe.find()
-      .populate("submittedBy", "fullname -_id")
-      .exec();
+    let query = Recipe.find();
+
+    if (req.query.fields) {
+      const fields = req.query.fields.split(",").join(" ");
+      query = query.select(fields);
+    } else {
+      query = query.select("-__v");
+    }
+
+    const recipes = await query;
     res.status(200).json({
       status: "success",
       result: recipes.length,
@@ -14,7 +21,8 @@ const getAllRecipe = async (req, res) => {
   } catch (err) {
     res.status(500).json({
       status: "fail",
-      message: "SOMETHING WENT VERY WRONG!",
+      message: "Something went very wrong!",
+      error: err,
     });
   }
 };
@@ -108,7 +116,6 @@ const getAllIds = async (req, res) => {
 
 const getSavedRecipes = async (req, res) => {
   try {
-    console.log(req.params);
     const user = await User.findById(req.params.userId);
     const savedRecipes = await Recipe.find({
       _id: { $in: user.savedRecipes },
@@ -126,10 +133,58 @@ const getSavedRecipes = async (req, res) => {
   }
 };
 
+const updateRecipe = async (req, res) => {
+  try {
+    const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    if (!recipe)
+      return res.status(404).json({
+        status: "fail",
+        message: "Recipe does not exist!",
+      });
+
+    res.status(200).json({
+      status: "success",
+      message: "recipe updated successfully!",
+      doc: { recipe },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: "something went very wrong!",
+    });
+  }
+};
+
+const deleteRecipe = async (req, res) => {
+  try {
+    const recipe = await Recipe.findByIdAndDelete(req.params.id);
+
+    if (!recipe)
+      return res.status(404).json({
+        status: "fail",
+        message: "Recipe does not exist!",
+      });
+
+    res.status(204).json({
+      status: "success",
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: "something went very wrong!",
+    });
+  }
+};
+
 export default {
   getAllRecipe,
   createRecipe,
   saveRecipes,
   getAllIds,
   getSavedRecipes,
+  updateRecipe,
+  deleteRecipe,
 };

@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "please create a password!"],
-      minLength: 6,
+      minlength: 6,
+      select: false,
     },
     savedRecipes: [
       {
@@ -34,6 +35,8 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
   const encryptedPassword = await bcrypt.hash(this.password, 12);
   this.password = encryptedPassword;
   next();

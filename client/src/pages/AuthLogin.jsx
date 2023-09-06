@@ -25,12 +25,16 @@ export function Login() {
     try {
       const response = await axios.post(loginUrl, { email, password });
 
-      setCookies("access_token", response.data.token);
-      window.localStorage.setItem("userId", response.data.userId);
-      window.localStorage.setItem("currentUser", response.data.fullname);
-      navigate("/");
-      setEmail("");
-      setPassword("");
+      if (response.data.status === "success") {
+        const { token, userId, fullname } = response.data;
+
+        setCookies("access_token", token);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("currentUser", fullname);
+        navigate("/");
+        setEmail("");
+        setPassword("");
+      }
     } catch (err) {
       alert(
         err.response.data.message ||

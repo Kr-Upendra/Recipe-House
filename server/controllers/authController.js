@@ -30,13 +30,15 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     if (!email || !password)
       return res.status(400).json({
         status: "fail",
-        message: "Please provide a valid email and password!",
+        message: "Please provide email and password!",
       });
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select("+password");
+
     if (!user)
       return res.status(401).json({
         status: "fail",
@@ -44,13 +46,14 @@ const login = async (req, res) => {
       });
 
     const isPasswordValid = await user.correctPassword(password, user.password);
+
     if (!isPasswordValid)
       return res.status(401).json({
         status: "fail",
         message: "Invalid email or password!",
       });
 
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "10d",
     });
 

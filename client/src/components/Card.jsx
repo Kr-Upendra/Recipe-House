@@ -57,7 +57,12 @@ export const CardDetails = ({ title, cookTime, addedby }) => {
         </div>
       </div>
       <div className="card__viewbtnbox">
-        <Link className="card__viewbtnbox--btn">Read Full</Link>
+        <Link
+          className="card__viewbtnbox--btn"
+          to="recipe/recipe-details/hello-world"
+        >
+          Read Full
+        </Link>
       </div>
     </>
   );

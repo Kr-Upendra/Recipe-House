@@ -53,7 +53,7 @@ export default function Navbar() {
 
         <Link
           onClick={hideNavbar}
-          to={!cookies.access_token ? "/auth/signup" : "/create-recipe"}
+          to={!cookies.access_token ? "/auth/signup" : "recipe/create-recipe"}
           className="navbar__links--link"
         >
           Create Recipe
@@ -70,7 +70,7 @@ export default function Navbar() {
         ) : (
           <>
             <Link
-              to={!cookies.access_token ? "/" : "/saved-recipe"}
+              to={!cookies.access_token ? "/" : "recipe/saved-recipes"}
               onClick={hideNavbar}
               className="navbar__links--link"
             >

@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
+import slugify from "slugify";
 
 const recipeSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "A recipe must have a name!"],
+  },
+  slug: {
+    type: String,
   },
   ingredients: [
     {
@@ -32,6 +36,11 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: [true, "please include name of recipe creator!"],
   },
+});
+
+recipeSchema.pre("save", function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);

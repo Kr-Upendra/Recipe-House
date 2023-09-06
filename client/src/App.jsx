@@ -3,24 +3,33 @@ import "./App.css";
 import Home from "./pages/Home";
 import SavedRecipe from "./pages/SavedRecipe";
 import CreateRecipe from "./pages/CreateRecipe";
-import Navbar from "./components/Navbar";
 import AuthLogin from "./pages/AuthLogin";
 import AuthSignup from "./pages/AuthSignup";
-import NotImpletedFeatures from "./components/NotImpletedFeatures";
+import Layout from "./components/layouts/Layout";
+import AuthLayout from "./components/layouts/AuthLayout";
+import RecipeLayout from "./components/layouts/RecipeLayout";
+import RecipeDetail from "./pages/RecipeDetail";
 
 function App() {
   return (
     <main className="app">
       <Router>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/saved-recipe" element={<SavedRecipe />} />
-          <Route path="/auth/signup" element={<AuthSignup />} />
-          <Route path="/auth/login" element={<AuthLogin />} />
-          <Route path="/create-recipe" element={<CreateRecipe />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route element={<AuthLayout />}>
+              <Route path="auth/signup" element={<AuthSignup />} />
+              <Route path="auth/login" element={<AuthLogin />} />
+            </Route>
+            <Route path="recipe" element={<RecipeLayout />}>
+              <Route path="recipe-detail/:slug" element={<RecipeDetail />} />
+              <Route path="create-recipe" element={<CreateRecipe />} />
+              <Route path="saved-recipes" element={<SavedRecipe />}>
+                <Route path=":slug" element={<RecipeDetail />} />
+              </Route>
+            </Route>
+          </Route>
         </Routes>
-        <NotImpletedFeatures />
       </Router>
     </main>
   );

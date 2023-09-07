@@ -10,13 +10,16 @@
 
   --bodyColor: linear-gradient(to right, #252525, #141414);
   --navbarColor: linear-gradient(to right, rgb(0, 0, 0), rgb(19, 29, 19));
+  --boxColor: linear-gradient(to right, rgb(61, 59, 63), rgb(40, 46, 49));
   --textColor: #dbdbdb;
   --primaryWhite: #ffffff;
   --primaryBlack: #000000;
-  --btnBgColor: #f1725c;
-  --btnBgHoverColor: #993624;
+  --btnBgColor: #3385ff;
+  --lightBtnColor: #3376db;
+  --btnBgHoverColor: #1250ac;
+  --dangerColor: rgb(233, 74, 0);
   --borderColor: #d365d367;
-  --placeholderColr: #beeaff9f;
+  --placeholderColr: #6b6b6b;
 
   --lightShadow: #0000001c 0 7px 15px 0;
   --extraShadow: #00000025 0 13px 25px 0;
@@ -93,7 +96,7 @@ h6 {
 .el__logoutbtn {
   padding: 0.55rem 1.25rem;
   font-size: 0.9rem;
-  background-color: var(--btnBgColor);
+  background-color: var(--dangerColor);
   color: var(--primaryWhite);
   border-radius: 3rem;
   text-transform: uppercase;
@@ -197,20 +200,20 @@ h6 {
 }
 
 .form__inputs--input {
-  width: 95%;
+  width: 90%;
   padding: 0.65rem 0.35rem;
   border-radius: 0.3rem;
   background-color: #231925d2;
   color: var(--primaryWhite);
   outline: none;
-  border: none;
+  border: 1.5px solid transparent;
   font-size: 1rem;
   letter-spacing: 1px;
-  border: 2px solid transparent;
 }
 
-.form__inputs--input:focus {
-  border: 2px solid var(--btnBgColor);
+.form__inputs--input:focus,
+.form__inputs--input:hover {
+  border: 1.5px solid var(--primaryWhite);
 }
 
 ::placeholder {
@@ -254,11 +257,11 @@ h6 {
 }
 
 .createrecipe__box {
-  margin: 3rem auto 0;
+  margin: 2rem auto 0;
   width: min(500px, 100%);
-  padding: 1.5rem 0;
+  padding: 3rem 0;
   border-radius: 0.35rem;
-  background-image: linear-gradient(to right, rgb(0, 0, 73), rgb(0, 53, 77));
+  background-image: var(--boxColor);
   box-shadow: var(--extraShadow);
 }
 
@@ -269,7 +272,7 @@ h6 {
 }
 
 .recipeform {
-  margin: 2rem 1.5rem;
+  margin: 2rem 1.5rem 0;
 }
 
 .recipe__inputs {
@@ -286,26 +289,29 @@ h6 {
 .recipe__inputs--input {
   width: 96%;
   padding: 0.45rem;
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--primaryWhite);
   border: 1px solid transparent;
   outline: none;
   border-radius: 0.45rem;
-  background-color: #17001b;
+  border: 1px dotted var(--primaryWhite);
+  background-color: #242424a9;
 }
+/* #3385ff */
 
 .recipe__inputs--input:focus,
 .recipe__inputs--textarea:focus {
-  border: 1px dotted var(--btnBgColor);
+  border: 1px dotted var(--primaryWhite);
 }
 
-.recipe__inputs--input[name="ingredients"] {
+.recipe__inputs--input[name="ingredients"],
+.recipe__inputs--input[name="instructions"] {
   margin-bottom: 0.5rem;
 }
 
 .recipe__inputs--textarea {
   width: 96%;
-  background-color: #17001b;
+  background-color: #242424a9;
   padding: 0.45rem;
   resize: none;
   border-radius: 0.45rem;
@@ -313,11 +319,12 @@ h6 {
   outline: none;
   font-family: inherit;
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--primaryWhite);
 }
 
-.more__ingredients {
+.more__ingredients,
+.more__instructions {
   margin: 0.45rem 0 0 0.25rem;
   padding: 0.45rem 1rem;
   border-radius: 0.45rem;
@@ -326,8 +333,14 @@ h6 {
   cursor: pointer;
   font-size: 1rem;
   font-weight: var(--semiboldWeight);
-  background-color: var(--btnBgColor);
+  background-color: var(--lightBtnColor);
   color: var(--primaryWhite);
+  transition: background-color 0.4s ease-in-out;
+}
+
+.more__ingredients:hover,
+.more__instructions:hover {
+  background-color: var(--btnBgHoverColor);
 }
 
 .recipe__inputs--btnbox {
@@ -336,17 +349,22 @@ h6 {
 
 .recipe__inputs--btnbox-submit {
   margin-top: 0.5rem;
-  padding: 0.65rem 3rem;
+  padding: 0.85rem 4rem;
   font-size: 1rem;
   font-weight: var(--semiboldWeight);
-  background-color: var(--btnBgColor);
+  background-color: var(--lightBtnColor);
   color: var(--primaryWhite);
   outline: none;
-  border: 2px solid var(--primaryWhite);
+  border: none;
   border-radius: 3rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.recipe__inputs--btnbox-submit:hover {
+  background-color: var(--btnBgHoverColor);
 }
 
 input::-webkit-outer-spin-button,
@@ -354,6 +372,29 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* RENDER DYNAMIC INPUT */
+
+.recipe__inputs--item {
+  position: relative;
+}
+
+.el-cross {
+  position: absolute;
+  top: 0.5%;
+  right: 0;
+  border-top-right-radius: 0.45rem;
+  border-bottom-right-radius: 0.45rem;
+  width: 22px;
+  padding-block: 0.37rem;
+  padding-inline: 0.4rem;
+  cursor: pointer;
+  background-color: #242424;
+  border: 1px dotted var(--primaryWhite);
+  border-left: transparent;
+}
+
+/* HOME */
 
 .home {
   padding: 1rem 2rem;
@@ -522,11 +563,6 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
-::marker {
-  font-size: 20px;
-  color: var(--btnBgColor);
-}
-
 .feature__box ul {
   margin-left: 1rem;
 }
@@ -577,7 +613,7 @@ input::-webkit-inner-spin-button {
 /* RECIPE DETAIL */
 .rDetails {
   border-radius: 0.25rem;
-  background-color: #202020dc;
+  background-image: var(--boxColor);
   backdrop-filter: blur(5px);
   padding: 2rem 2rem;
   width: 55%;
@@ -655,7 +691,6 @@ input::-webkit-inner-spin-button {
 .rDetails__ingradients--list,
 .rDetails__instructions--list {
   margin-left: 2.5rem;
-  list-style-type: square;
 }
 
 .el-ingradients {
@@ -667,7 +702,7 @@ input::-webkit-inner-spin-button {
 }
 
 ::marker {
-  color: var(--textColor);
+  color: var(--lightBtnColor);
   font-size: 1.5rem;
 }
 

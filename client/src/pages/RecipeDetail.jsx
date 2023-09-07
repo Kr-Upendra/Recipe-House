@@ -62,58 +62,29 @@ export const RecipeDetailContainer = (props) => {
           className="el-recipeimg"
         />
       </div>
-      <div className="rDetails__ingradients">
-        <h2 className="el-iheading">Ingradient List</h2>
-        <ul className="rDetails__ingradients--list">
-          {props.ingredients.map((item, index) => {
-            return (
-              <li key={index} className="el-initem">
-                {item}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className="rDetails__instructions">
-        <h2 className="el-iheading">Steps to create recipe</h2>
-
-        <div className="rDetails__instructions--steps">
-          <p className="el-steps">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate,
-            officiis delectus perspiciatis accusamus quas odit tenetur quaerat
-            doloribus quos aliquam, cupiditate dicta deleniti, quod beatae rem
-            expedita repellat! Doloribus, unde?
-          </p>
-        </div>
-        <div className="rDetails__instructions--steps">
-          <p className="el-steps">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate,
-            officiis delectus perspiciatis accusamus quas odit tenetur quaerat
-            doloribus quos aliquam, cupiditate dicta deleniti, quod beatae rem
-            expedita repellat! Doloribus, unde?
-          </p>
-        </div>
-        <div className="rDetails__instructions--steps">
-          <p className="el-steps">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate,
-            officiis delectus perspiciatis accusamus quas odit tenetur quaerat
-            doloribus quos aliquam, cupiditate dicta deleniti, quod beatae rem
-            expedita repellat! Doloribus, unde?
-          </p>
-        </div>
-        <div className="rDetails__instructions--steps">
-          <p className="el-steps">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate,
-            officiis delectus perspiciatis accusamus quas odit tenetur quaerat
-            doloribus quos aliquam, cupiditate dicta deleniti, quod beatae rem
-            expedita repellat! Doloribus, unde?
-          </p>
-        </div>
-      </div>
+      <RenderListItems items={props.ingredients} styleClass={"ingradients"} />
+      <RenderListItems items={props.instructions} styleClass={"instructions"} />
     </div>
   );
 };
 
 export const ResteurentDetailContainer = () => {
   return <div className="rOthers"></div>;
+};
+
+export const RenderListItems = ({ items, styleClass }) => {
+  return (
+    <div className={`rDetails__${styleClass}`}>
+      <h2 className="el-iheading">Steps to create recipe</h2>
+      <ul className={`rDetails__${styleClass}--list`}>
+        {items.map((item, index) => {
+          return (
+            <li key={index} className={`el-${styleClass}`}>
+              {item}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };

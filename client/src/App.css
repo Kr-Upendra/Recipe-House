@@ -648,12 +648,17 @@ input::-webkit-inner-spin-button {
   margin-bottom: 3rem;
 }
 
-.rDetails__ingradients--list {
+.rDetails__instructions {
+  margin-bottom: 1rem;
+}
+
+.rDetails__ingradients--list,
+.rDetails__instructions--list {
   margin-left: 2.5rem;
   list-style-type: square;
 }
 
-.el-initem {
+.el-ingradients {
   font-size: 1rem;
   color: var(--textColor);
   letter-spacing: 1px;
@@ -666,20 +671,12 @@ input::-webkit-inner-spin-button {
   font-size: 1.5rem;
 }
 
-.rDetails__instructions {
-  margin-bottom: 1rem;
-}
-
-.rDetails__instructions--steps {
-  margin-bottom: 1.5rem;
-  margin-left: 1rem;
-}
-
-.el-steps {
+.el-instructions {
   font-size: 1rem;
   color: var(--textColor);
   line-height: 1.55;
   letter-spacing: 1px;
+  margin-bottom: 1rem;
   font-weight: var(--mediunWeight);
 }
 

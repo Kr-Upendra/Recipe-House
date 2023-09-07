@@ -20,13 +20,13 @@ This GitHub repository includes an exciting web application that allows users to
   - User Authentication
   - Bookmarking Recipes
   - Creating Recipes
+  - Deleting Recipes
+  - Full Reading Page for specific Recipe
+  - Editing Recipes [Not At Frontend]
 
 - ### Need to be implement
 
   - Unbookmarkgin Recipes
-  - Deleting Recipes
-  - Editing Recipes
-  - Full Reading Page for specific Recipe
   - Show nearest restaurant By user's location
   - Including Youtube video for specific Recipes if Possible
   - Reviwing Recipe

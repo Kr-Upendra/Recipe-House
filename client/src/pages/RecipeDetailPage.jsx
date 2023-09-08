@@ -1,30 +1,20 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { recipeBaseUrl } from "../hooks/useGetUserId";
 import Loading from "../components/Loading";
+import useRecipeDetails from "../hooks/useRecipeDetails";
 
 const RecipeDetailPage = () => {
   const { slug } = useParams();
-  const baseUrl = recipeBaseUrl();
-  const [recipe, setRecipe] = useState([]);
-
-  useEffect(() => {
-    const getDetailedRecipe = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}${slug}`);
-        setRecipe(response.data.doc.recipe);
-      } catch (err) {
-        alert(err.response.data.message || "Something went very wrong!");
-      }
-    };
-
-    getDetailedRecipe();
-  }, [slug]);
+  const { recipe, error, isLoading } = useRecipeDetails(slug);
 
   return (
     <div className="dContainer">
-      {recipe.length === 0 ? <Loading /> : <RecipeDetails {...recipe} />}
+      {isLoading ? (
+        <Loading />
+      ) : error ? (
+        <div>Error</div>
+      ) : (
+        <RecipeDetails {...recipe} />
+      )}
 
       <ResteurentDetails />
     </div>
@@ -72,10 +62,6 @@ export const RecipeDetails = (props) => {
   );
 };
 
-export const ResteurentDetails = () => {
-  return <div className="rOthers"></div>;
-};
-
 export const RenderListItems = ({ items, styleClass, heading }) => {
   return (
     <div className={`rDetails__${styleClass}`}>
@@ -91,4 +77,8 @@ export const RenderListItems = ({ items, styleClass, heading }) => {
       </ul>
     </div>
   );
+};
+
+export const ResteurentDetails = () => {
+  return <div className="rOthers"></div>;
 };

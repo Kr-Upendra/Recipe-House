@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { recipeBaseUrl } from "../hooks/useGetUserId";
 import Loading from "../components/Loading";
 
-const RecipeDetail = () => {
+const RecipeDetailPage = () => {
   const { slug } = useParams();
   const baseUrl = recipeBaseUrl();
   const [recipe, setRecipe] = useState([]);
@@ -24,20 +24,16 @@ const RecipeDetail = () => {
 
   return (
     <div className="dContainer">
-      {recipe.length === 0 ? (
-        <Loading />
-      ) : (
-        <RecipeDetailContainer {...recipe} />
-      )}
+      {recipe.length === 0 ? <Loading /> : <RecipeDetails {...recipe} />}
 
-      <ResteurentDetailContainer />
+      <ResteurentDetails />
     </div>
   );
 };
 
-export default RecipeDetail;
+export default RecipeDetailPage;
 
-export const RecipeDetailContainer = (props) => {
+export const RecipeDetails = (props) => {
   return (
     <div className="rDetails">
       <div className="rDetails__title">
@@ -62,20 +58,28 @@ export const RecipeDetailContainer = (props) => {
           className="el-recipeimg"
         />
       </div>
-      <RenderListItems items={props.ingredients} styleClass={"ingradients"} />
-      <RenderListItems items={props.instructions} styleClass={"instructions"} />
+      <RenderListItems
+        items={props.ingredients}
+        styleClass={"ingradients"}
+        heading={"Used Ingredients"}
+      />
+      <RenderListItems
+        items={props.instructions}
+        styleClass={"instructions"}
+        heading={"Steps to create recipe"}
+      />
     </div>
   );
 };
 
-export const ResteurentDetailContainer = () => {
+export const ResteurentDetails = () => {
   return <div className="rOthers"></div>;
 };
 
-export const RenderListItems = ({ items, styleClass }) => {
+export const RenderListItems = ({ items, styleClass, heading }) => {
   return (
     <div className={`rDetails__${styleClass}`}>
-      <h2 className="el-iheading">Steps to create recipe</h2>
+      <h2 className="el-iheading">{heading}</h2>
       <ul className={`rDetails__${styleClass}--list`}>
         {items.map((item, index) => {
           return (

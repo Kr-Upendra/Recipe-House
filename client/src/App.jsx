@@ -8,7 +8,7 @@ import AuthSignup from "./pages/AuthSignup";
 import Layout from "./components/layouts/Layout";
 import AuthLayout from "./components/layouts/AuthLayout";
 import RecipeLayout from "./components/layouts/RecipeLayout";
-import RecipeDetail from "./pages/RecipeDetail";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
 
 function App() {
   return (
@@ -22,7 +22,10 @@ function App() {
               <Route path="auth/login" element={<AuthLogin />} />
             </Route>
             <Route path="recipe" element={<RecipeLayout />}>
-              <Route path="recipe-details/:slug" element={<RecipeDetail />} />
+              <Route
+                path="recipe-details/:slug"
+                element={<RecipeDetailPage />}
+              />
               <Route path="create-recipe" element={<CreateRecipe />} />
               <Route path="saved-recipes" element={<SavedRecipe />} />
             </Route>

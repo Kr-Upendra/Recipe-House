@@ -40,7 +40,9 @@ const Footer = () => {
               <Link className="el-ul-li-item">Blogs</Link>
             </li>
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Career</Link>
+              <Link to={"career"} className="el-ul-li-item">
+                Career
+              </Link>
             </li>
             <li className="el-ul-li">
               <Link className="el-ul-li-item">Partnership</Link>

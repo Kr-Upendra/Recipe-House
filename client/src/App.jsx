@@ -9,6 +9,7 @@ import Layout from "./components/layouts/Layout";
 import AuthLayout from "./components/layouts/AuthLayout";
 import RecipeLayout from "./components/layouts/RecipeLayout";
 import RecipeDetailPage from "./pages/RecipeDetailPage";
+import Career from "./pages/Career";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="career" element={<Career />} />
             <Route element={<AuthLayout />}>
               <Route path="auth/signup" element={<AuthSignup />} />
               <Route path="auth/login" element={<AuthLogin />} />

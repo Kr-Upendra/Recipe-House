@@ -850,6 +850,95 @@ input::-webkit-inner-spin-button {
   height: 100%;
 }
 
+/* Career Page */
+
+.cpage {
+  padding: 1rem 4rem;
+  margin-block-start: 2rem;
+}
+
+.cpage__header {
+  display: flex;
+  align-items: center;
+  /* margin-block-end: 5rem; */
+}
+
+.cpage__header--title {
+  margin-inline-end: auto;
+}
+
+.cpage__header--title h1 {
+  font-family: var(--headingFont);
+  font-size: 5rem;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  color: var(--primaryWhite);
+  margin-bottom: 1rem;
+}
+
+.cpage__header--title p {
+  width: 70%;
+  font-size: 1.15rem;
+  color: var(--textColor);
+}
+
+.el-cop {
+  margin-block: 2rem;
+  padding-block: 0.85rem;
+  padding-inline: 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 3rem;
+  border: none;
+  background-color: var(--btnBgColor);
+  color: var(--primaryWhite);
+  cursor: pointer;
+}
+
+.cpage__header--illustration {
+  object-fit: cover;
+}
+
+.cpage__header--illustration img {
+  width: 600px;
+  animation: imageAnimation 8s 0.5s infinite linear;
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: translate(0px, 0);
+  }
+  30% {
+    transform: translate(-20px, -10px);
+  }
+  65% {
+    transform: translate(20px, 10px);
+  }
+  100% {
+    transform: translate(0px, 0);
+  }
+}
+
+.cpage__op {
+  padding-block-start: 4rem;
+  border-top: 1px solid #4d4d4d;
+  padding-block-end: 1rem;
+}
+
+.cpage__op--h {
+  margin-block-end: 2rem;
+}
+
+.cpage__op--h h2 {
+  letter-spacing: 1px;
+  color: var(--primaryWhite);
+}
+
+.jobs {
+  padding-inline-start: 2rem;
+}
+
 /* Media Query */
 
 @media (max-width: 1000px) {
@@ -865,6 +954,15 @@ input::-webkit-inner-spin-button {
   .rOthers {
     width: 80%;
     margin: 0 auto;
+  }
+
+  .cpage__header--illustration img {
+    width: 400px;
+    margin-inline-end: -2rem;
+  }
+
+  .cpage__header--title h1 {
+    font-size: 4rem;
   }
 }
 
@@ -931,11 +1029,29 @@ input::-webkit-inner-spin-button {
     padding-block-end: 0;
     padding-inline: 3rem;
   }
+
+  .cpage__header {
+    flex-direction: column-reverse;
+  }
+
+  .cpage__header--illustration {
+    margin-block-end: 3rem;
+  }
+
+  .cpage__header--illustration img {
+    width: 580px;
+  }
+
+  .cpage__header--title p {
+    width: 100%;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
   .home,
-  .navbar {
+  .navbar,
+  .cpage {
     padding: 1rem 1.25rem;
   }
 
@@ -959,6 +1075,14 @@ input::-webkit-inner-spin-button {
 
   .footer__ctnr {
     padding-inline: 1.25rem;
+  }
+
+  .cpage__header--illustration img {
+    width: 100%;
+  }
+
+  .cpage__header--title h1 {
+    font-size: 3rem;
   }
 }
 

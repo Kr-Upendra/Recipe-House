@@ -455,6 +455,12 @@ input::-webkit-inner-spin-button {
   font-size: 0.95rem;
   color: var(--primaryWhite);
   letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.card__details--title-el:hover {
+  color: var(--lightBtnColor);
+  text-decoration: underline;
 }
 
 .card__details--authortime {

@@ -61,9 +61,11 @@ export const CardDetails = ({ title, cookTime, addedby, slug }) => {
   return (
     <>
       <div className="card__details">
-        <div className="card__details--title">
-          <h3 className="card__details--title-el">{title}</h3>
-        </div>
+        <Link to={`recipe/recipe-details/${slug}`}>
+          <div className="card__details--title">
+            <h3 className="card__details--title-el">{title}</h3>
+          </div>
+        </Link>
         <div className="card__details--authortime">
           <h5 className="card__details--authortime-el">{cookTime} Min</h5>
           <h5 className="card__details--authortime-el">{addedby}</h5>

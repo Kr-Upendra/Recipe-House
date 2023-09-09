@@ -13,7 +13,6 @@ const useRecipeDetails = (slug) => {
     const getDetailedRecipe = async () => {
       try {
         const response = await axios.get(`${baseUrl}${slug}`);
-        console.log(response.data.doc);
         setRecipe(response.data.doc.recipe);
       } catch (err) {
         setError(

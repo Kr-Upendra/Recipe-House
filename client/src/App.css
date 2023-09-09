@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Delius&display=swap");
 :root {
   --fontFamily: "Delius", cursive;
+  --headingFont: "Acme", sans-serif;
   --globalFontSize: 15px;
   --regularWeight: 400;
   --mediunWeight: 500;
@@ -50,7 +50,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  padding-bottom: 1rem;
 }
 
 input,
@@ -721,6 +720,45 @@ input::-webkit-inner-spin-button {
   height: max-content;
 }
 
+/* Footer */
+
+.footer {
+  background-image: linear-gradient(to right, rgb(44, 44, 44), rgb(43, 54, 51));
+  padding: 5rem 4rem;
+}
+
+.footer__heading {
+  display: flex;
+  align-items: center;
+}
+
+.footer__heading--text {
+  margin-right: auto;
+}
+
+.footer__heading--text h1 {
+  font-size: 3rem;
+  color: var(--primaryWhite);
+  font-family: var(--headingFont);
+  letter-spacing: 2px;
+}
+
+.footer__social--icons-item {
+  margin-inline: 0.45rem;
+}
+
+.fa-links {
+  font-size: 1.5rem;
+  color: var(--textColor);
+  transition: color 0.4s ease-in-out;
+}
+
+.fa-links:hover {
+  color: var(--lightBtnColor);
+}
+
+/* Media Query */
+
 @media (max-width: 1000px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
@@ -780,9 +818,7 @@ input::-webkit-inner-spin-button {
   .dContainer {
     padding: 2rem 1rem;
   }
-}
 
-@media (max-width: 750px) {
   .rDetails,
   .rOthers {
     width: 90%;
@@ -796,13 +832,23 @@ input::-webkit-inner-spin-button {
   .el-title {
     line-height: 1.4;
   }
+
+  .footer {
+    padding: 4rem 2rem;
+  }
 }
 
 @media (max-width: 600px) {
   .home,
-  .navbar {
+  .navbar,
+  .footer {
     padding: 1rem 1.25rem;
   }
+
+  .footer {
+    padding-block: 4rem;
+  }
+
   .container {
     grid-template-columns: repeat(1, 1fr);
     margin: 1.5rem 0.75rem;
@@ -811,10 +857,17 @@ input::-webkit-inner-spin-button {
   .card__image--img {
     height: 175px;
   }
+
+  .footer__heading--text h1 {
+    font-size: 1.75rem;
+  }
 }
+
+/* Custom ScrollBar */
 
 ::-webkit-scrollbar {
   width: 5px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -822,6 +875,6 @@ input::-webkit-inner-spin-button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--textColor);
+  background: var(--lightBtnColor);
   border-radius: 10px;
 }

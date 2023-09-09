@@ -23,6 +23,7 @@ This GitHub repository includes an exciting web application that allows users to
   - Deleting Recipes
   - Full Reading Page for specific Recipe
   - Editing Recipes [Not At Frontend]
+  - Add Footer
 
 - ### Need to be implement
 
@@ -33,7 +34,6 @@ This GitHub repository includes an exciting web application that allows users to
   - Following Chef's
   - Giving Notification when new gets added
   - Changing Alert function
-  - Add Footer
   - Others
 
 ## Used Technology

@@ -1,0 +1,22 @@
+[
+  {
+    "role": "Frontend Developer",
+    "skills": ["ReactJS", "JavaScript", "HTML"],
+    "experience": 1
+  },
+  {
+    "role": "Nodejs Developer",
+    "skills": ["NodeJS", "JavaScript"],
+    "experience": 0
+  },
+  {
+    "role": "Sprint Boot Developer",
+    "skills": ["Spring Boot", "Java"],
+    "experience": 2
+  },
+  {
+    "role": "Golang Backend Developer",
+    "skills": ["Go", "ReactJS", "APIs"],
+    "experience": 2
+  }
+]

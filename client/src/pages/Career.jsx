@@ -1,4 +1,11 @@
+import { Link } from "react-router-dom";
+import jobs from "../utils/jobs.json";
+
 const Career = () => {
+  const jobElement = jobs.map((job) => {
+    return <JobDetails key={job.role} {...job} />;
+  });
+
   return (
     <div className="cpage">
       <div className="cpage__header">
@@ -17,14 +24,40 @@ const Career = () => {
           <img src="/young-men.png" alt="Illustration Art" />
         </div>
       </div>
-      {/* <div className="cpage__op">
+      <div className="cpage__op">
         <div className="cpage__op--h">
-          <h2>Current Open Positions</h2>
+          <h2>Open Positions</h2>
         </div>
-        <div className="jobs"></div>
-      </div> */}
+        <div className="jobs">{jobElement}</div>
+      </div>
     </div>
   );
 };
 
 export default Career;
+
+export const JobDetails = ({ role, skills, experience }) => {
+  return (
+    <div className="job">
+      <div className="job__role">
+        <span className="el__element">{role}</span>
+      </div>
+
+      <div className="job__rskills">
+        {skills.map((skill) => {
+          return (
+            <span className="el__element" key={skill}>
+              {skill + ", "}
+            </span>
+          );
+        })}
+      </div>
+      <div className="job__rexp">
+        <span className="el__element">{experience} Yr</span>
+      </div>
+      <div className="job__apbtn">
+        <Link className="apply-btn">Apply</Link>
+      </div>
+    </div>
+  );
+};

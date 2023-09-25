@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import jobs from "../utils/jobs.json";
 import { Link } from "react-router-dom";
 
 const Career = () => {
+  window.scrollTo(0, 0);
+
   const jobElement = jobs.map((job) => {
     return <JobDetails key={job.role} {...job} />;
   });

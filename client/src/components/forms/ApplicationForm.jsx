@@ -1,4 +1,5 @@
 const ApplicationForm = () => {
+  window.scrollTo(0, 0);
   return (
     <div className="hero">
       <div className="hero__box">

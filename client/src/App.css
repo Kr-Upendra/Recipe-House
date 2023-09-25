@@ -975,12 +975,14 @@ input::-webkit-inner-spin-button {
 }
 
 .apply-btn {
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   background-color: var(--btnBgColor);
   color: var(--primaryWhite);
   font-size: 1rem;
   border-radius: 3rem;
   text-transform: uppercase;
+  border: none;
+  cursor: pointer;
 }
 
 .job .el__element {
@@ -990,6 +992,76 @@ input::-webkit-inner-spin-button {
 
 .job:last-child {
   margin-block-end: 0;
+}
+
+/* APPLICATION FORM */
+
+.hero {
+  margin-block-start: 2rem;
+  margin-block-end: 5rem;
+  padding: 2rem;
+}
+
+.hero__box {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.hero__box--form {
+  padding-block: 2rem;
+  text-align: center;
+  box-shadow: var(--extraShadow);
+  border-radius: 0.35rem;
+}
+
+.hero__box--form input {
+  width: 70%;
+  margin-block: 1rem;
+  padding: 0.65rem 0.25rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  color: var(--btnBgColor);
+  font-weight: 500;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.658);
+}
+
+.textareabox textarea {
+  width: 70%;
+  margin-block: 1rem;
+  padding: 0.65rem 0.25rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.658);
+  resize: none;
+  font-family: inherit;
+  color: var(--lightBtnColor);
+}
+
+.hero__box--form h1 {
+  color: var(--primaryWhite);
+  margin-block-end: 1rem;
+  font-size: 1.5rem;
+}
+
+.hero__box--form input[type="submit"] {
+  width: 150px;
+  display: block;
+  text-align: center;
+  margin: 1rem auto;
+  border-radius: 3rem;
+  padding: 0.75rem 0;
+  background-color: var(--btnBgColor);
+  color: var(--primaryWhite);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 /* Media Query */
@@ -1156,6 +1228,28 @@ input::-webkit-inner-spin-button {
 
   .cpage__header--title h1 {
     font-size: 3rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero__box--form input {
+    width: 80%;
+  }
+
+  .textareabox textarea {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero__box--form input {
+    width: 90%;
+  }
+
+  .textareabox textarea {
+    width: 90%;
   }
 }
 

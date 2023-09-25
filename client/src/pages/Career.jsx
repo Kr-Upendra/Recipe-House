@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import jobs from "../utils/jobs.json";
+import { Link } from "react-router-dom";
 
 const Career = () => {
   const jobElement = jobs.map((job) => {
@@ -56,7 +56,9 @@ export const JobDetails = ({ role, skills, experience }) => {
         <span className="el__element">{experience} Yr</span>
       </div>
       <div className="job__apbtn">
-        <Link className="apply-btn">Apply</Link>
+        <Link to="id" className="apply-btn">
+          Apply
+        </Link>
       </div>
     </div>
   );

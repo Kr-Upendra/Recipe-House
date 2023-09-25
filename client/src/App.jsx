@@ -10,6 +10,8 @@ import AuthLayout from "./components/layouts/AuthLayout";
 import RecipeLayout from "./components/layouts/RecipeLayout";
 import RecipeDetailPage from "./pages/RecipeDetailPage";
 import Career from "./pages/Career";
+import ApplicationForm from "./components/forms/ApplicationForm";
+import CareerLayout from "./components/layouts/CareerLayout";
 
 function App() {
   return (
@@ -18,7 +20,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="career" element={<Career />} />
+            <Route path="career" element={<CareerLayout />}>
+              <Route index element={<Career />} />
+              <Route path=":id" element={<ApplicationForm />} />
+            </Route>
             <Route element={<AuthLayout />}>
               <Route path="auth/signup" element={<AuthSignup />} />
               <Route path="auth/login" element={<AuthLogin />} />

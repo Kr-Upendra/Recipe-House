@@ -10,19 +10,29 @@ const Footer = () => {
           <div className="footer__cntr--bx-lb">
             <ul className="el-ul">
               <li className="el-ul-li">
-                <Link className="el-ul-li-item">Contact Us</Link>
+                <Link to={"/"} className="el-ul-li-item">
+                  Contact Us
+                </Link>
               </li>
               <li className="el-ul-li">
-                <Link className="el-ul-li-item">Privacy Policy</Link>
+                <Link to={"/"} className="el-ul-li-item">
+                  Privacy Policy
+                </Link>
               </li>
               <li className="el-ul-li">
-                <Link className="el-ul-li-item">Terms of Services</Link>
+                <Link to={"/"} className="el-ul-li-item">
+                  Terms of Services
+                </Link>
               </li>
               <li className="el-ul-li">
-                <Link className="el-ul-li-item">FAQs</Link>
+                <Link to={"/"} className="el-ul-li-item">
+                  FAQs
+                </Link>
               </li>
               <li className="el-ul-li">
-                <Link className="el-ul-li-item">Developer API</Link>
+                <Link to={"/"} className="el-ul-li-item">
+                  Developer API
+                </Link>
               </li>
             </ul>
           </div>
@@ -31,13 +41,19 @@ const Footer = () => {
           <h2>Company</h2>
           <ul className="el-ul">
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">About Us</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                About Us
+              </Link>
             </li>
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Our Team</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                Our Team
+              </Link>
             </li>
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Blogs</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                Blogs
+              </Link>
             </li>
             <li className="el-ul-li">
               <Link to={"career"} className="el-ul-li-item">
@@ -53,16 +69,24 @@ const Footer = () => {
           <h2>Social Media</h2>
           <ul className="el-ul">
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Facebook</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                Facebook
+              </Link>
             </li>
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Instagram</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                Instagram
+              </Link>
             </li>
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Twitter</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                Twitter
+              </Link>
             </li>
             <li className="el-ul-li">
-              <Link className="el-ul-li-item">Linkedin</Link>
+              <Link to={"/"} className="el-ul-li-item">
+                Linkedin
+              </Link>
             </li>
           </ul>
         </div>

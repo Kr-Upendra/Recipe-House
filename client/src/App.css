@@ -160,13 +160,14 @@ h6 {
 }
 
 .auth {
-  padding: 1rem;
+  padding: 1rem 0.75rem;
 }
 
 .signup,
 .login {
   margin: 3rem auto 0;
-  width: min(380px, 100%);
+  max-width: 360px;
+  width: 100%;
   padding: 1.5rem 1rem;
   border-radius: 0.35rem;
   background-color: rgb(89, 72, 105);

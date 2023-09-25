@@ -1251,9 +1251,7 @@ input::-webkit-inner-spin-button {
   .textareabox textarea {
     width: 90%;
   }
-}
 
-@media (max-width: 425px) {
   .footer__ctnr--bx {
     padding-inline-start: 1.5rem;
   }

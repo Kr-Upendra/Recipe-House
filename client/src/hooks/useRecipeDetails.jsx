@@ -4,6 +4,7 @@ import { useRecipeBaseUrl } from "./useBaseUrls";
 
 const useRecipeDetails = (slug) => {
   const baseUrl = useRecipeBaseUrl();
+  console.log(baseUrl);
   const [recipe, setRecipe] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

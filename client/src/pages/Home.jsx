@@ -73,9 +73,13 @@ export default function Home() {
   return (
     <main className="home">
       <h2 className="home__title">All Recipes</h2>
-      <div className="container" data-isloading={recipeElement.length === 0}>
-        {recipeElement.length === 0 ? <Loading /> : recipeElement}
-      </div>
+      {recipeElement.length === 0 ? (
+        <Loading />
+      ) : (
+        <div className="container" data-isloading={recipeElement.length === 0}>
+          {recipeElement}
+        </div>
+      )}
     </main>
   );
 }

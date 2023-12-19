@@ -1,30 +1,24 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { useGetUserId } from "../hooks/useGetUserId";
-import { useCookies } from "react-cookie";
+// import { useGetUserId } from "../hooks/useGetUserId";
+// import { useCookies } from "react-cookie";
 
 const Card = (props) => {
-  const {
-    slug,
-    imageUrl,
-    name,
-    cookingTime,
-    owner,
-    savedRecipesId,
-    bookmarkRecipe,
-  } = props;
-  const userId = useGetUserId();
+  console.log(props);
+  const { slug, imageUrl, name, cookingTime, owner } = props;
+  // const userId = useGetUserId();
 
-  const [cookies, _] = useCookies(["access_token"]);
-  const isBookmarked = (id) => savedRecipesId.includes(id);
+  // const [cookies, _] = useCookies(["access_token"]);
+  // const isBookmarked = (id) => savedRecipesId.includes(id);
 
-  const bookmarkRecipeDB = (recipeId, userId) => {
-    bookmarkRecipe(recipeId, userId);
-  };
+  // const bookmarkRecipeDB = (recipeId, userId) => {
+  //   bookmarkRecipe(recipeId, userId);
+  // };
 
-  const handleBookmark = () => {
-    if (!cookies.access_token) alert("You are not logged in!");
-    else bookmarkRecipeDB(props._id, userId);
-  };
+  // const handleBookmark = () => {
+  //   if (!cookies.access_token) alert("You are not logged in!");
+  //   else bookmarkRecipeDB(props._id, userId);
+  // };
 
   return (
     <div className="card">
@@ -34,16 +28,9 @@ const Card = (props) => {
           alt="Recipe Name"
           className="card__image--img"
         />
-
-        {isBookmarked(props._id) ? (
-          <div className="bookmarkbox">
-            <i className="el-bookmarkbtn fa-solid fa-bookmark"></i>
-          </div>
-        ) : (
-          <div className="bookmarkbox" onClick={handleBookmark}>
-            <i className="el-bookmarkbtn fa fa-bookmark-o"></i>
-          </div>
-        )}
+        <div className="bookmarkbox">
+          <i className="el-bookmarkbtn fa-solid fa-bookmark"></i>
+        </div>
       </div>
       <CardDetails
         title={name}

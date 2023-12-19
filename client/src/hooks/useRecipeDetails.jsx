@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useRecipeBaseUrl } from "./useBaseUrls";
+// import { useRecipeBaseUrl } from "./useBaseUrls";
 
 const useRecipeDetails = (slug) => {
-  const baseUrl = useRecipeBaseUrl();
+  const baseUrl = "http://127.0.0.1:5050";
   console.log(baseUrl);
   const [recipe, setRecipe] = useState([]);
   const [error, setError] = useState(null);

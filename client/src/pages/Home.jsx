@@ -1,71 +1,21 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { recipeBaseUrl, useGetUserId } from "../hooks/useGetUserId";
-import { useCookies } from "react-cookie";
-import Loading from "../components/Loading";
 import Card from "../components/Card";
+import Loading from "../components/Loading";
+import { useGetAllRecipes } from "../hooks/useGetAllRecipes";
 
 export default function Home() {
-  const [recipes, setRecipes] = useState([]);
-  const [savedRecipes, setSavedRecipes] = useState([]);
-  const baseUrl = recipeBaseUrl();
-  const userId = useGetUserId();
-  const [cookies, _] = useCookies(["access_token"]);
+  const { recipes, error, isLoading } = useGetAllRecipes();
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await axios.get(
-          `${baseUrl}?fields=name,owner,slug,cookingTime,imageUrl`
-        );
-        setRecipes(response.data.doc);
-      } catch (err) {
-        alert(err.response.data.message);
-      }
-    };
+  if (error) return <h1>Some error occured! please try again lator!</h1>;
 
-    const fetchSavedRecipes = async () => {
-      try {
-        if (userId) {
-          const response = await axios.get(
-            `${baseUrl}savedRecipes/ids/${userId}`
-          );
-          setSavedRecipes(response.data.doc.savedRecipes);
-        }
-      } catch (err) {
-        alert(err.response.data.message);
-      }
-    };
-
-    fetchRecipes();
-    if (cookies.access_token) fetchSavedRecipes();
-  }, []);
-
-  const saveRecipe = async (recipeId, userId) => {
-    try {
-      const response = await axios.put(
-        baseUrl,
-        { recipeId, userId },
-        { headers: { Authorization: `Bearer ${cookies.access_token}` } }
-      );
-      if (response.data.status === "success") {
-        alert("Recipe saved!");
-        setSavedRecipes(response.data.document.savedRecipes);
-      }
-    } catch (err) {
-      alert("something went very! please try again lator");
-    }
-  };
-
-  const finalRecipes = recipes.recipes || [];
-
-  const recipeElement = finalRecipes.map((recipe) => {
+  const cardElement = recipes.map((recipe) => {
     return (
       <Card
         key={recipe._id}
-        {...recipe}
-        savedRecipesId={savedRecipes}
-        bookmarkRecipe={saveRecipe}
+        name={recipe.name}
+        slug={recipe.slug}
+        imageUrl={recipe.imageUrl}
+        cookingTime={recipe.cookingTime}
+        owner={recipe.owner}
       />
     );
   });
@@ -73,13 +23,7 @@ export default function Home() {
   return (
     <main className="home">
       <h2 className="home__title">All Recipes</h2>
-      {recipeElement.length === 0 ? (
-        <Loading />
-      ) : (
-        <div className="container" data-isloading={recipeElement.length === 0}>
-          {recipeElement}
-        </div>
-      )}
+      {isLoading ? <Loading /> : <div className="container">{cardElement}</div>}
     </main>
   );
 }

@@ -1,18 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NotFound from "./pages/404";
-import GlobalStyle from "./styles/GlobalStyle";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import AppLayout from "./layouts/AppLayout";
+import Home from "./pages/Home";
 
-function App() {
+export default function App() {
   return (
     <>
-      <GlobalStyle />
-      <Router>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<NotFound />} />
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="all-recipes" />} />
+            <Route path="all-recipes" element={<Home />} />
+          </Route>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
-
-export default App;

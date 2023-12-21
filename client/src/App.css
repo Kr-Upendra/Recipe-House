@@ -12,12 +12,21 @@ button {
   font-weight: 500;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 15px;
-  font-family: "Delius", cursive;
+  font-family: "Figtree", sans-serif;
   transition: background-color 0.3s, color 0.3s;
+  color: #323232;
   min-height: 100vh;
-  background-color: aliceblue;
+}
+
+.main {
+  padding-inline: 7rem;
+  padding-block: 2rem;
 }
 
 /*# sourceMappingURL=App.css.map */

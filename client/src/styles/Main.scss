@@ -1,5 +1,4 @@
 @import "abstracts/colors";
-@import "abstracts/mediaQuery";
 @import "abstracts/mixins";
 @import "abstracts/placeholders";
 @import "abstracts/variables";
@@ -9,6 +8,7 @@
 
 @import "components/button";
 @import "components/input";
+@import "components/menuIcon";
 
 @import "layout/header";
 @import "layout/navbar";
@@ -22,3 +22,5 @@
 @import "utils/container";
 @import "utils/flexbox";
 @import "utils/grid";
+
+@import "abstracts/mediaQuery";

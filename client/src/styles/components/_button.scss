@@ -1,0 +1,7 @@
+.auth__button {
+  @include authButton($blue-00, $white-02 !important, $isDanger: true);
+
+  &:hover {
+    color: $white-00 !important;
+  }
+}

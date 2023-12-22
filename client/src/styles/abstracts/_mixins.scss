@@ -1,0 +1,28 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexalign {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexJustify($prop) {
+  display: flex;
+  justify-content: $prop;
+}
+
+@mixin authButton($bgColor, $color, $isDanger: false) {
+  padding-inline: 0.5rem;
+  padding-block: 0.3rem;
+  background-color: $bgColor;
+  color: $color;
+  border-radius: $radius-sm;
+  font-weight: 500;
+
+  @if $isDanger {
+    text-transform: uppercase;
+  }
+}

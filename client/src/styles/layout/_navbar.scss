@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  &__items {
+    font-size: 1rem;
+    color: $black-04;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+
+    &.active,
+    &:hover {
+      color: $blue-00;
+    }
+  }
+
+  &__user {
+    @include flexalign;
+    padding-block: 0.25rem;
+    padding-inline: 0.5rem;
+    background-color: $blue-00;
+    border-radius: $radius-sm;
+    color: $white-02;
+    transition: color 0.3s;
+    & img {
+      margin-left: 0.5rem;
+      width: 25px;
+    }
+
+    &:hover {
+      color: $white-00;
+    }
+  }
+
+  &__logout {
+    padding-inline: 0.5rem;
+    padding-block: 0.4rem;
+    background-color: $danger-00;
+    color: $white-02;
+    border-radius: $radius-sm;
+
+    &:hover {
+      color: $white-00;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import MenuIcon from "../components/MenuIcon";
 
 export default function Header() {
   return (
@@ -14,6 +15,7 @@ export default function Header() {
           Flavor Corner
         </span>
       </Link>
+      <MenuIcon />
       <Navbar />
     </header>
   );

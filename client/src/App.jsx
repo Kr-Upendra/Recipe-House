@@ -14,6 +14,7 @@ export default function App() {
             <Route path="category" element={<Home />} />
             <Route path="about" element={<Home />} />
             <Route path="contact" element={<Home />} />
+            <Route path="signup" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

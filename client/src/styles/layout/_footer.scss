@@ -1,0 +1,12 @@
+.footer {
+  padding-block-start: 1.25rem;
+  padding-block-end: 0.5rem;
+  padding-inline: 1rem;
+  text-align: center;
+  & p {
+    font-size: 0.9rem;
+    & a {
+      text-decoration: underline;
+    }
+  }
+}

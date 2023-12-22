@@ -1,6 +1,9 @@
+import { useState } from "react";
 import TrendingBox from "../components/TrendingBox";
 
 export default function Hero() {
+  const [showTrends, setShowTrends] = useState(false);
+
   return (
     <div className="hero">
       <div className="hero__search">
@@ -12,12 +15,14 @@ export default function Hero() {
             type="text"
             placeholder="Search Flavors..."
             className="el-input hero__search--inputbox-input"
+            onFocus={() => setShowTrends(true)}
+            onBlur={() => setShowTrends(false)}
           />
           <span className="el-search-icon material-symbols-outlined">
             search
           </span>
         </div>
-        <TrendingBox />
+        {showTrends && <TrendingBox />}
       </div>
     </div>
   );

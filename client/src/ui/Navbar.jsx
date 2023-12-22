@@ -2,9 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 
 const isTrue = false;
 
-export default function Navbar() {
+export default function Navbar({ showNavbar }) {
   return (
-    <nav className="navbar" aria-hidden="false">
+    <nav className="navbar" aria-hidden={showNavbar}>
       <NavLink to="/all-recipes" className="navbar__items">
         Home
       </NavLink>

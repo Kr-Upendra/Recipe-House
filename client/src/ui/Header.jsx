@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import MenuIcon from "../components/MenuIcon";
+import { useState } from "react";
 
 export default function Header() {
+  const [showNavbar, setShowNavbar] = useState(false);
+
   return (
     <header className="header">
       <Link to="/" className="header__logo">
@@ -15,8 +18,8 @@ export default function Header() {
           Flavor Corner
         </span>
       </Link>
-      <MenuIcon />
-      <Navbar />
+      <MenuIcon showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
+      <Navbar showNavbar={showNavbar} />
     </header>
   );
 }

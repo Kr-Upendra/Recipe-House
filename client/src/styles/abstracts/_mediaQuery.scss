@@ -4,6 +4,8 @@
   }
   .menu {
     display: block;
+    position: fixed;
+    right: 1.5rem;
     z-index: 10;
     cursor: pointer;
   }
@@ -15,7 +17,7 @@
     width: 100%;
     height: 100%;
     background-color: $white-00;
-    z-index: 1;
+    z-index: 2;
     @include flex;
     flex-direction: column;
     transition: $transition-all;
@@ -34,7 +36,6 @@
   // HERO
   .hero {
     padding-inline: 1rem;
-
     &__search {
       padding-block-start: 11rem;
       &--label {
@@ -46,5 +47,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 520px) {
+  .hero__search {
+    padding-block-start: 8rem;
   }
 }

@@ -27,8 +27,24 @@
       }
     }
   }
-
   .navbar[aria-hidden="true"] {
     left: 0;
+  }
+
+  // HERO
+  .hero {
+    padding-inline: 1rem;
+
+    &__search {
+      padding-block-start: 11rem;
+      &--label {
+        font-size: 1.25rem;
+      }
+      &--inputbox {
+        &-input {
+          font-size: 1.1rem;
+        }
+      }
+    }
   }
 }

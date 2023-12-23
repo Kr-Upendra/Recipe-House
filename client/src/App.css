@@ -171,7 +171,7 @@ body {
   border-radius: 3px;
   min-height: 95vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.651), rgba(0, 0, 0, 0.377)), url("./images/favicon.ico");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.651), rgba(0, 0, 0, 0.377)), url("../images/hero_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 10%;

@@ -8,7 +8,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route path="/" element={<AppLayout />}>
             <Route index element={<Navigate replace to="all-recipes" />} />
             <Route path="all-recipes" element={<Home />} />
             <Route path="category" element={<Home />} />

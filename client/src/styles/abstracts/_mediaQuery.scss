@@ -1,3 +1,15 @@
+@media (max-width: 1320px) {
+  .section {
+    padding-inline: 4rem;
+  }
+}
+
+@media (max-width: 1020px) {
+  .section {
+    padding-inline: 3rem;
+  }
+}
+
 @media (max-width: 820px) {
   .header {
     padding-inline: 1.25rem;
@@ -48,10 +60,72 @@
       }
     }
   }
+
+  .headingbox {
+    &__text {
+      font-size: 1.25rem;
+    }
+  }
+
+  // SECTION
+  .section {
+    padding-inline: 2.5rem;
+  }
+
+  // CARD
+
+  .card {
+    &__contents {
+      &--title {
+        font-size: 1rem;
+      }
+      &--detail {
+        & .el-xd {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .headingbox {
+    &__text {
+      font-size: 1.25rem;
+    }
+  }
+
+  // SECTION
+  .section {
+    padding-inline: 1.5rem;
+  }
+
+  .card {
+    &__contents {
+      margin-bottom: 2rem;
+      &--title {
+        margin-bottom: 0.5rem;
+      }
+    }
+    & .view-button {
+      bottom: 0;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    &__image {
+      & .bookmark-button {
+        top: 0;
+      }
+    }
+  }
 }
 
 @media (max-width: 520px) {
   .hero__search {
     padding-block-start: 8rem;
+  }
+  .section {
+    padding-inline: 1.15rem;
   }
 }

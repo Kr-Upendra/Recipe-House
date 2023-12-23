@@ -24,5 +24,6 @@
 
   @if $isDanger {
     text-transform: uppercase;
+    background-color: $danger-01;
   }
 }

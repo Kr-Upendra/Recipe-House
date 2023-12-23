@@ -270,6 +270,19 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 10%;
+  position: relative;
+}
+.hero__latest {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  font-size: 1.25rem;
+  color: #f2f2f2;
+  background-image: linear-gradient(to right, #0000b3, #3333ff);
+  cursor: pointer;
 }
 .hero__search {
   margin: 0 auto;

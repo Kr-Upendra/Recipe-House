@@ -7,6 +7,20 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 10%;
+  position: relative;
+
+  &__latest {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    padding: 1rem 2rem;
+    border-radius: $radius-rd;
+    font-size: 1.25rem;
+    color: $white-01;
+    background-image: linear-gradient(to right, $blue-00, $blue-05);
+    cursor: pointer;
+  }
 
   &__search {
     margin: 0 auto;

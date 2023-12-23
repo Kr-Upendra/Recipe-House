@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import TrendingBox from "../components/TrendingBox";
 
-export default function Hero() {
+export default function Hero({ handleScroll }) {
   const [showTrends, setShowTrends] = useState(false);
 
   return (
@@ -24,6 +25,9 @@ export default function Hero() {
         </div>
         {showTrends && <TrendingBox />}
       </div>
+      <button onClick={handleScroll} className="hero__latest">
+        See Latest Flavors
+      </button>
     </div>
   );
 }

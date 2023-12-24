@@ -101,6 +101,11 @@
   }
 
   .card {
+    &__image {
+      &--el {
+        height: 10rem;
+      }
+    }
     &__contents {
       margin-bottom: 2rem;
       &--title {
@@ -122,8 +127,13 @@
 }
 
 @media (max-width: 520px) {
-  .hero__search {
-    padding-block-start: 8rem;
+  .hero {
+    &__search {
+      padding-block-start: 8rem;
+    }
+    &__latest {
+      width: min(250px, 100%);
+    }
   }
   .section {
     padding-inline: 1.15rem;

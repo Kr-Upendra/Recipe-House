@@ -86,6 +86,26 @@
       }
     }
   }
+
+  // Contact Box
+
+  .contact {
+    .contact__box {
+      flex-direction: column;
+      justify-content: center;
+      &--item {
+        width: 100%;
+      }
+      & .contents {
+        max-width: none;
+      }
+    }
+  }
+  .form {
+    &__inputs {
+      max-width: none;
+    }
+  }
 }
 
 @media (max-width: 600px) {

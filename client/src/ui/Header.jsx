@@ -19,7 +19,7 @@ export default function Header() {
         </span>
       </Link>
       <MenuIcon showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
-      <Navbar showNavbar={showNavbar} />
+      <Navbar showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
     </header>
   );
 }

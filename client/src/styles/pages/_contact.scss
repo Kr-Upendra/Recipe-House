@@ -1,0 +1,46 @@
+.contact {
+  padding-inline: 10rem;
+  .contact__box {
+    display: flex;
+    gap: 2rem;
+
+    &--item {
+      height: max-content;
+      width: 100%;
+    }
+
+    & .contents {
+      max-width: 450px;
+      padding-block: 1.5rem;
+      width: 100%;
+
+      &__box {
+        &:not(:last-child) {
+          margin-bottom: 1.5rem;
+        }
+        & h3 {
+          font-size: 1.05rem;
+          margin-bottom: 0.5rem;
+          color: $blue-01;
+          font-weight: 600;
+        }
+        &--list p {
+          margin-block-end: 0.25rem;
+          font-size: 1rem;
+          color: $black-05;
+          @include flexalign;
+
+          & i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+          }
+        }
+        & .el-map {
+          height: 15rem;
+          border-radius: $radius-sm;
+          box-shadow: $shadow-sm;
+        }
+      }
+    }
+  }
+}

@@ -2,13 +2,21 @@ import { Link, NavLink } from "react-router-dom";
 
 const isTrue = false;
 
-export default function Navbar({ showNavbar }) {
+export default function Navbar({ showNavbar, setShowNavbar }) {
   return (
     <nav className="navbar" aria-hidden={showNavbar}>
-      <NavLink to="/all-recipes" className="navbar__items">
+      <NavLink
+        onClick={() => setShowNavbar(false)}
+        to="/all-recipes"
+        className="navbar__items"
+      >
         Home
       </NavLink>
-      {isTrue ? <UserNavbarLink /> : <WithouLoggedInNavbar />}
+      {isTrue ? (
+        <UserNavbarLink />
+      ) : (
+        <WithouLoggedInNavbar setShowNavbar={setShowNavbar} />
+      )}
     </nav>
   );
 }
@@ -30,19 +38,35 @@ function UserNavbarLink() {
   );
 }
 
-function WithouLoggedInNavbar() {
+function WithouLoggedInNavbar({ setShowNavbar }) {
   return (
     <>
-      <NavLink to="/category" className="navbar__items">
+      <NavLink
+        onClick={() => setShowNavbar(false)}
+        to="/category"
+        className="navbar__items"
+      >
         Category
       </NavLink>
-      <NavLink to="/about" className="navbar__items">
+      <NavLink
+        onClick={() => setShowNavbar(false)}
+        to="/about"
+        className="navbar__items"
+      >
         About
       </NavLink>
-      <NavLink to="/contact" className="navbar__items">
+      <NavLink
+        onClick={() => setShowNavbar(false)}
+        to="/contact"
+        className="navbar__items"
+      >
         Contact
       </NavLink>
-      <NavLink to="/signup" className="auth__button navbar__items">
+      <NavLink
+        onClick={() => setShowNavbar(false)}
+        to="/signup"
+        className="auth__button navbar__items"
+      >
         Sign up
       </NavLink>
     </>

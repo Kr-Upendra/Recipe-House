@@ -1,0 +1,45 @@
+.form {
+  padding-block: 1.5rem;
+  &__heading {
+    margin-block-end: 1.25rem;
+    font-size: 1.25rem;
+    color: $black-03;
+  }
+  &__inputs {
+    width: 100%;
+    max-width: 450px;
+
+    &--box {
+      margin-block: 1.5rem;
+      width: 100%;
+
+      & .el-input,
+      & .el-textarea {
+        padding: 0.75rem 0.75rem;
+        background-color: $grey-09;
+        width: 100%;
+        border-radius: $radius-sm;
+        font-size: 1rem;
+        color: $blue-02;
+        resize: none;
+      }
+
+      & .el-submit {
+        width: 100%;
+        text-transform: uppercase;
+        padding-block: 0.75rem;
+        font-size: 1.25rem;
+        background-color: $blue-05;
+        color: $white-03;
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: $default-transition;
+
+        &:hover {
+          background-color: $blue-02;
+          color: $white-00;
+        }
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <Hero handleScroll={scrollToAllRecipes} />
       <section ref={latestRef} className="section allrecipes" id="allrecipes">
-        <Heading />
+        <Heading headingTitle="All Recipes" textAlign="left" fontSize={1.5} />
         <div className="container">
           {isLoading ? <h1>Loading</h1> : cardElement}
         </div>

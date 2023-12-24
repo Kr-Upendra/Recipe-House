@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-const baseUrl = "http://recipehouse.onrender.com/api/recipes";
+const baseUrl = "https://recipehouse.onrender.com/api/recipes";
 
 export function useApiFlavors() {
   const [data, setData] = useState([]);

@@ -21,7 +21,7 @@
       top: -3rem;
       padding: 0.65rem;
       border-bottom-left-radius: $radius-md;
-      background-color: rgba(255, 255, 255, 0.116);
+      background-color: rgba(56, 42, 255, 0.425);
       backdrop-filter: blur(20px);
       cursor: pointer;
       transition: all 0.3s;
@@ -43,27 +43,10 @@
         color: $blue-02;
       }
     }
-
-    &--detail {
-      @include flexalign;
-      justify-content: space-between;
-      margin-bottom: 0.25rem;
-      & .el-xd {
-        font-size: 1rem;
-        color: $black-04;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-
-        & i {
-          margin-right: 0.25rem;
-        }
-      }
-    }
   }
   & .view-button {
     width: 100%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: $white-03;
     background-color: $blue-05;
     padding-block: 0.75rem;
@@ -74,6 +57,7 @@
     left: 0;
     text-transform: uppercase;
     cursor: pointer;
+    text-align: center;
     transition: $transition-all;
 
     &:hover {

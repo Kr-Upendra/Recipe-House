@@ -49,7 +49,7 @@ export default function Contact() {
             <div className="contents__box">
               <h3>Reach Out to Us</h3>
               <div className="contents__box--list el-map">
-                <p>Map</p>
+                <p>MAP GOES HERE..</p>
               </div>
             </div>
           </div>

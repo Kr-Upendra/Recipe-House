@@ -2,11 +2,12 @@ import { useRef } from "react";
 import Heading from "../components/Heading";
 import Card from "../ui/Card";
 import Hero from "../ui/Hero";
-import { useApiFlavors } from "../services/apiFlavors";
+import { useGetFlavors } from "../hooks/useGetFlavors";
 
 export default function Home() {
   const latestRef = useRef(null);
-  const { data, error, isLoading } = useApiFlavors();
+  const { data, error, isLoading } = useGetFlavors();
+
   const cardElement = data.map((flavor) => (
     <Card
       key={flavor.id}
@@ -14,6 +15,7 @@ export default function Home() {
       image={flavor.imageUrl}
       cooktime={flavor.cookingTime}
       writer={flavor.owner}
+      slug={flavor.slug}
     />
   ));
 

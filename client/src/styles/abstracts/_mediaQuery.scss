@@ -106,6 +106,28 @@
       max-width: none;
     }
   }
+
+  // DETAIL PAGE
+  .detail {
+    & .hello {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .detailed {
+    padding: 2rem 1.25rem;
+    &__title {
+      &--heading {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .line {
+    &__heading {
+      font-size: 1.25rem;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -141,6 +163,32 @@
     &__image {
       & .bookmark-button {
         top: 0;
+      }
+    }
+  }
+
+  // DETAIL PAGE
+
+  .detailed {
+    padding: 2rem 0.75rem;
+    &__title {
+      margin-bottom: 1rem;
+      &--heading {
+        font-size: 1.15rem;
+      }
+    }
+  }
+  .line {
+    margin-top: 1.5rem;
+    &__heading {
+      font-size: 1.15rem;
+    }
+    &__list {
+      ::marker {
+        font-size: 1.25rem;
+      }
+      &--item {
+        font-size: 0.95rem;
       }
     }
   }

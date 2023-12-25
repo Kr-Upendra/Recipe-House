@@ -1,0 +1,58 @@
+.detail {
+  & .hello {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 55vw calc(100% - 56.3vw);
+  }
+}
+
+.detailed {
+  padding: 2rem;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  &__title {
+    margin-bottom: 1.5rem;
+    &--heading {
+      font-size: 1.75rem;
+      color: $blue-05;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+  }
+  &__image {
+    object-fit: cover;
+    margin-bottom: 1rem;
+    &--photo {
+      width: 100%;
+      border-radius: $radius-sm;
+      box-shadow: $shadow-sm;
+    }
+  }
+}
+
+.line {
+  margin-top: 2.5rem;
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__heading {
+    color: $blue-03;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  &__list {
+    padding-left: 2rem;
+    list-style-type: disc;
+    ::marker {
+      font-size: 1.4rem;
+      color: $blue-05;
+    }
+    &--item {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: $black-05;
+      line-height: 1.5;
+    }
+  }
+}

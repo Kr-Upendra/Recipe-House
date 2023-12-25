@@ -1,5 +1,9 @@
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import WriterTime from "../components/WriterTime";
+
 export default function Card(props) {
-  const { title, image, writer, cooktime } = props;
+  const { title, image, writer, cooktime, slug } = props;
   return (
     <article className="card">
       <div className="card__image">
@@ -10,18 +14,19 @@ export default function Card(props) {
       </div>
       <div className="card__contents">
         <h1 className="card__contents--title">{title}</h1>
-        <div className="card__contents--detail">
-          <p className="el-xd">
-            <i className="material-symbols-outlined">person_edit</i>
-            <span>{writer}</span>
-          </p>
-          <p className="el-xd">
-            <i className="material-symbols-outlined">timer</i>
-            <span>{cooktime} min</span>
-          </p>
-        </div>
+        <WriterTime writer={writer} cooktime={cooktime} />
       </div>
-      <button className="view-button">View Recipe</button>
+      <Link to={`/all-recipes/${slug}`} className="view-button">
+        View Flavor
+      </Link>
     </article>
   );
 }
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  cooktime: PropTypes.number.isRequired,
+  writer: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+};

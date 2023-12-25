@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "64f8adac7e89d9b2a48faadb",
+    "name": "Suji Gulab Jamun Recipe",
+    "imageUrl": "https://c.ndtvimg.com/2021-11/ckqd18a_gulab-jamun_625x300_03_November_21.jpg",
+    "cookingTime": 25,
+    "submittedBy": "64f8ac6b7e89d9b2a48faad2",
+    "owner": "Dipti Sharma",
+    "slug": "suji-gulab-jamun-recipe"
+  },
+  {
+    "_id": "64f8b3737e89d9b2a48faaeb",
+    "name": "Chhola Bhatura Recipe",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmYjWQvzXtig4huqPVsQhxRKgWgKiULWWXEZtqD4iX5BrF9FyZDDsytqTN2U2V5K10_Dg",
+    "cookingTime": 120,
+    "submittedBy": "64f8ac6b7e89d9b2a48faad2",
+    "owner": "Dipti Sharma",
+    "slug": "chhola-bhatura-recipe"
+  },
+  {
+    "_id": "64f8b4167e89d9b2a48faaf3",
+    "name": "The Mummy Sandwich Recipe ",
+    "imageUrl": "https://static.toiimg.com/thumb/95137868.cms?imgsize=79746&width=509&height=340",
+    "cookingTime": 20,
+    "submittedBy": "64f8ac6b7e89d9b2a48faad2",
+    "owner": "Dipti Sharma",
+    "slug": "the-mummy-sandwich-recipe"
+  },
+  {
+    "_id": "64f8b5a77e89d9b2a48faafe",
+    "name": "Besan Ke Laddoo Recipe",
+    "imageUrl": "https://c.ndtvimg.com/2019-09/fufi21u_besan-ladoo_625x300_11_September_19.jpg",
+    "cookingTime": 120,
+    "submittedBy": "64f8ac6b7e89d9b2a48faad2",
+    "owner": "Dipti Sharma",
+    "slug": "besan-ke-laddoo-recipe"
+  },
+  {
+    "_id": "64f8b6ba7e89d9b2a48fab0d",
+    "name": "Almond And Rose Kheer Recipe",
+    "imageUrl": "https://c.ndtvimg.com/2020-07/t8lvghl_kheer_625x300_29_July_20.jpg",
+    "cookingTime": 60,
+    "submittedBy": "64f8b5eb7e89d9b2a48fab06",
+    "owner": "Saumya Adhikari",
+    "slug": "almond-and-rose-kheer-recipe"
+  },
+  {
+    "_id": "64f8b7477e89d9b2a48fab13",
+    "name": "Kaju Pista Roll Recipe",
+    "imageUrl": "https://c.ndtvimg.com/2022-10/nf6clesg_kaju-roll_625x300_13_October_22.jpg",
+    "cookingTime": 60,
+    "submittedBy": "64f8b5eb7e89d9b2a48fab06",
+    "owner": "Saumya Adhikari",
+    "slug": "kaju-pista-roll-recipe"
+  },
+  {
+    "_id": "64f8b8437e89d9b2a48fab19",
+    "name": "Goan Chicken Croquette Recipe",
+    "imageUrl": "https://c.ndtvimg.com/2019-06/gnu4cclg_croquettes_625x300_19_June_19.jpg",
+    "cookingTime": 30,
+    "submittedBy": "64f8b5eb7e89d9b2a48fab06",
+    "owner": "Saumya Adhikari",
+    "slug": "goan-chicken-croquette-recipe"
+  },
+  {
+    "_id": "64f8e8f6007f5b684d1fd930",
+    "name": "Darbari Dal Recipe",
+    "imageUrl": "https://c.ndtvimg.com/2023-08/u4lrelqg_dahiwali-toor-dal_625x300_01_August_23.jpg",
+    "cookingTime": 30,
+    "submittedBy": "64f8e5d3007f5b684d1fd924",
+    "owner": "Mohit Roy ",
+    "slug": "darbari-dal-recipe"
+  },
+  {
+    "_id": "64f8eb20007f5b684d1fd936",
+    "name": "Vegetable Roti Recipe ",
+    "imageUrl": "https://c.ndtvimg.com/2023-06/64fc0fa_aloo-palak-paratha_625x300_06_June_23.jpg",
+    "cookingTime": 25,
+    "submittedBy": "64f8e5d3007f5b684d1fd924",
+    "owner": "Mohit Roy ",
+    "slug": "vegetable-roti-recipe"
+  }
+]

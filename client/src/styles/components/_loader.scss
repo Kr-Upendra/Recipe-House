@@ -1,0 +1,20 @@
+.loader {
+  padding: 2rem 1rem;
+  @include flex;
+  &__image {
+    width: 100px;
+    animation: loader 2s ease-in-out infinite;
+  }
+}
+
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

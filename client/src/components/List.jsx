@@ -2,7 +2,6 @@
 
 export default function List(props) {
   const { listTitle, listItems } = props;
-  console.log(listItems);
 
   return (
     <div className="line">

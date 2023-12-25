@@ -1,5 +1,6 @@
 import ContactForm from "../components/ContactForm";
 import Heading from "../components/Heading";
+import { Map, Marker } from "pigeon-maps";
 
 export default function Contact() {
   return (
@@ -49,7 +50,7 @@ export default function Contact() {
             <div className="contents__box">
               <h3>Reach Out to Us</h3>
               <div className="contents__box--list el-map">
-                <p>MAP GOES HERE..</p>
+                <MyMap />
               </div>
             </div>
           </div>
@@ -57,4 +58,10 @@ export default function Contact() {
       </div>
     </section>
   );
+}
+
+function MyMap() {
+  <Map defaultCenter={[25.4358, 81.8463]} defaultZoom={10}>
+    <Marker width={30} anchor={[50.879, 4.6997]} color="#0000e6" />
+  </Map>;
 }

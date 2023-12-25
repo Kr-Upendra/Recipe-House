@@ -2,7 +2,7 @@
 import { useState } from "react";
 import TrendingBox from "../components/TrendingBox";
 
-export default function Hero({ handleScroll }) {
+export default function Hero() {
   const [showTrends, setShowTrends] = useState(false);
 
   return (
@@ -25,9 +25,10 @@ export default function Hero({ handleScroll }) {
         </div>
         {showTrends && <TrendingBox />}
       </div>
-      <button onClick={handleScroll} className="hero__latest">
-        See Latest Flavors
-      </button>
     </div>
   );
 }
+
+//      <button onClick={handleScroll} className="hero__latest">
+// See Latest Flavors
+// </button>

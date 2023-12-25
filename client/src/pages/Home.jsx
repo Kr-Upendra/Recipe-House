@@ -1,15 +1,13 @@
-import { useRef } from "react";
 import Heading from "../components/Heading";
 import Card from "../ui/Card";
 import Hero from "../ui/Hero";
 import { useGetFlavors } from "../hooks/useGetFlavors";
 import ShowError from "../components/ShowError";
 import Loader from "../components/Loader";
+import Category from "../ui/Category";
 
 export default function Home() {
-  const latestRef = useRef(null);
   const { data, error, isLoading } = useGetFlavors();
-  console.log({ data, error, isLoading });
 
   const cardElement = data.map((flavor) => (
     <Card
@@ -22,14 +20,10 @@ export default function Home() {
     />
   ));
 
-  const scrollToAllRecipes = () => {
-    latestRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
-      <Hero handleScroll={scrollToAllRecipes} />
-      <section ref={latestRef} className="section allrecipes" id="allrecipes">
+      <Hero />
+      <section className="section allrecipes" id="allrecipes">
         <Heading headingTitle="All Recipes" textAlign="left" fontSize={1.5} />
         <div className="container">
           {isLoading ? (
@@ -41,6 +35,7 @@ export default function Home() {
           )}
         </div>
       </section>
+      <Category />
     </>
   );
 }

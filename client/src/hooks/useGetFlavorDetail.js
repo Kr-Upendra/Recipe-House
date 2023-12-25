@@ -8,6 +8,7 @@ export function useGetFlavorDetail(slug) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getFlavorDetail = async () => {
       try {
         setIsLoading(true);

@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { CategoryContext } from "../context/categoryContext";
 
 const isTrue = false;
 
 export default function Navbar({ showNavbar, setShowNavbar }) {
+  const { setShowCategory } = useContext(CategoryContext);
+
   return (
     <nav className="navbar" aria-hidden={showNavbar}>
       <NavLink
@@ -13,6 +17,13 @@ export default function Navbar({ showNavbar, setShowNavbar }) {
       >
         Home
       </NavLink>
+      <button
+        onClick={() => setShowCategory(false)}
+        className="navbar__items navbar__button"
+      >
+        Category
+      </button>
+
       {isTrue ? (
         <UserNavbarLink />
       ) : (
@@ -42,13 +53,6 @@ function UserNavbarLink() {
 function WithouLoggedInNavbar({ setShowNavbar }) {
   return (
     <>
-      <NavLink
-        onClick={() => setShowNavbar(false)}
-        to="/category"
-        className="navbar__items"
-      >
-        Category
-      </NavLink>
       <NavLink
         onClick={() => setShowNavbar(false)}
         to="/about"

@@ -318,6 +318,10 @@ body {
   color: #0000e6;
   font-weight: 500;
 }
+.navbar__button {
+  background-color: inherit;
+  cursor: pointer;
+}
 .navbar__user {
   display: flex;
   align-items: center;

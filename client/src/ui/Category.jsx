@@ -1,7 +1,16 @@
+import { useContext } from "react";
+import { CategoryContext } from "../context/categoryContext";
+
 export default function Category() {
+  const { showCategory, setShowCategory } = useContext(CategoryContext);
+
   return (
-    <div className="category" aria-hidden="true">
-      <div className="category__close">
+    <div className="category" aria-hidden={showCategory}>
+      <div
+        role="button"
+        className="category__close"
+        onClick={() => setShowCategory(true)}
+      >
         <i className="material-symbols-outlined">Close</i>
       </div>
       <div className="category__title">

@@ -765,6 +765,7 @@ body {
   font-size: 1rem;
   line-height: 1.35;
   margin-bottom: 2rem;
+  color: #4c4c4c;
 }
 .cancer__detail--button {
   padding: 1rem 2rem;
@@ -851,7 +852,7 @@ body {
 }
 @media (max-width: 500px) {
   .cancer__image {
-    height: 50vh;
+    height: 35vh;
   }
   .about__alpha--heading {
     font-size: 2rem;

@@ -84,6 +84,7 @@
       font-size: 1rem;
       line-height: 1.35;
       margin-bottom: 2rem;
+      color: $black-03;
     }
     &--button {
       padding: 1rem 2rem;
@@ -191,7 +192,7 @@
 @media (max-width: 500px) {
   .cancer {
     &__image {
-      height: 50vh;
+      height: 35vh;
     }
   }
   .about {

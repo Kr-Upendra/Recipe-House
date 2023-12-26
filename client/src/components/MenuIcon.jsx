@@ -1,9 +1,16 @@
-export default function MenuIcon(props) {
+import PropTypes from "prop-types";
+
+export default function MenuIcon({ showNavbar, setShowNavbar }) {
+  const setMenuPosition = {
+    position: showNavbar ? "fixed" : "absolute",
+  };
+
   return (
     <div
-      onClick={() => props.setShowNavbar((prev) => !prev)}
+      style={setMenuPosition}
+      onClick={() => setShowNavbar((prev) => !prev)}
       className="menu"
-      aria-hidden={!props.showNavbar}
+      aria-hidden={!showNavbar}
     >
       <div className="menu__bars"></div>
       <div className="menu__bars"></div>
@@ -11,3 +18,8 @@ export default function MenuIcon(props) {
     </div>
   );
 }
+
+MenuIcon.propTypes = {
+  showNavbar: PropTypes.bool.isRequired,
+  setShowNavbar: PropTypes.any,
+};

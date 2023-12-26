@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Detail from "./pages/Detail";
 import { CategoryContext } from "./context/categoryContext";
+import About from "./pages/About";
 
 export default function App() {
   const [showCategory, setShowCategory] = useState(true);
@@ -18,7 +19,7 @@ export default function App() {
               <Route index element={<Navigate replace to="all-recipes" />} />
               <Route path="all-recipes" element={<Home />} />
               <Route path="all-recipes/:slug" element={<Detail />} />
-              <Route path="about" element={<Home />} />
+              <Route path="about" element={<About />} />
               <Route path="contact" element={<Contact />} />
               <Route path="signup" element={<Home />} />
             </Route>

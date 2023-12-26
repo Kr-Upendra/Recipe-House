@@ -27,3 +27,14 @@
     background-color: $danger-01;
   }
 }
+
+@mixin bgImage($imageUrl) {
+  min-height: 95vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.377)),
+    url($imageUrl);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 10%;
+  position: relative;
+}

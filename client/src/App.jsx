@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Detail from "./pages/Detail";
 import { CategoryContext } from "./context/categoryContext";
 import About from "./pages/About";
+import AuthPage from "./pages/AuthPage";
 
 export default function App() {
   const [showCategory, setShowCategory] = useState(true);
@@ -21,7 +22,7 @@ export default function App() {
               <Route path="all-recipes/:slug" element={<Detail />} />
               <Route path="about" element={<About />} />
               <Route path="contact" element={<Contact />} />
-              <Route path="signup" element={<Home />} />
+              <Route path="signup" element={<AuthPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

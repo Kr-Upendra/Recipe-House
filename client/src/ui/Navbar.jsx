@@ -43,7 +43,10 @@ function UserNavbarLink() {
         <span className="username">Hello User</span>
         <img src="./images/default-user.png" alt="Photo of Loggedin User" />
       </Link>
-      <NavLink to="/contact" className="navbar__logout navbar__items">
+      <NavLink
+        to="/contact"
+        className="navbar__logout navbar__items navbar__round"
+      >
         Logout
       </NavLink>
     </>
@@ -70,7 +73,7 @@ function WithouLoggedInNavbar({ setShowNavbar }) {
       <NavLink
         onClick={() => setShowNavbar(false)}
         to="/signup"
-        className="auth__button navbar__items"
+        className="auth__button navbar__items navbar__round"
       >
         Sign up
       </NavLink>

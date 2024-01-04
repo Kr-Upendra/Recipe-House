@@ -1,0 +1,212 @@
+.auth__container {
+  min-height: 80vh;
+  display: flex;
+  &--formbox {
+    width: 45%;
+    overflow-y: hidden;
+    transition: transform 0.3s;
+    max-height: 81.5vh;
+    @include leftRadius($radius-md);
+    box-shadow: $shadow-lg;
+    overflow-y: hidden;
+  }
+  &--imagebox {
+    width: calc(100% - 45%);
+    max-height: 81.5vh;
+    position: relative;
+    object-fit: cover;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../images/about_02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    @include rightRadius($radius-md);
+    box-shadow: $shadow-lg;
+    & .inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+
+      &__text {
+        font-size: 3rem;
+        color: $white-02;
+        margin-bottom: 1rem;
+      }
+
+      &__button {
+        font-size: 1rem;
+        text-transform: uppercase;
+        padding: 0.8rem 3rem;
+        background-color: $blue-04;
+        color: $white-02;
+        border-radius: $radius-rd;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+}
+
+.authform {
+  padding-block: 2.5rem;
+  padding-inline: 3rem;
+  height: 100%;
+
+  &__title {
+    text-align: center;
+    &--text {
+      font-size: 1.5rem;
+      color: $black-03;
+      font-weight: 600;
+    }
+  }
+
+  &__box {
+    margin-block: 1.5rem;
+    &--inputs {
+      &:not(:first-child) {
+        margin-block: 1.5rem;
+      }
+      & input {
+        width: 100%;
+        background-color: $grey-09;
+        padding-block: 0.75rem;
+        padding-inline: 0.5rem;
+        font-size: 1rem;
+        border-radius: $radius-sm;
+        color: $blue-02;
+        text-transform: capitalize;
+      }
+    }
+    &--button {
+      margin-block-end: 0.75rem;
+      & button {
+        width: 100%;
+        background-color: $blue-04;
+        font-size: 1rem;
+        color: $white-03;
+        padding-block: 0.65rem;
+        font-weight: 500;
+        border-radius: $radius-sm;
+        cursor: pointer;
+      }
+    }
+    &--forgot {
+      & span {
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+      }
+      & button {
+        color: $blue-02;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+  &__with {
+    margin-block: 0.5rem 1.5rem;
+    text-align: center;
+    padding-block-start: 1.5rem;
+    border-top: 2px solid $grey-08;
+  }
+
+  &__other {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    & button {
+      padding: 0.65rem 1.25rem;
+      font-size: 1rem;
+      border-radius: $radius-sm;
+      background-color: $blue-05;
+      color: $white-03;
+      cursor: pointer;
+      & span {
+        margin-right: 0.25rem;
+      }
+    }
+  }
+}
+
+.signin {
+  transition: transform 0.4s;
+  .authform__box {
+    margin-block: 3.6rem;
+  }
+}
+
+.signup {
+  transition: transform 0.4s;
+}
+
+@media (max-width: 1320px) {
+  .authform {
+    padding-inline: 2.25rem;
+  }
+}
+
+@media (max-width: 1020px) {
+  .authform {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .auth__container {
+    flex-direction: column-reverse;
+    &--formbox {
+      width: 100%;
+      border-top-left-radius: 0;
+      @include bottomRadius($radius-md);
+    }
+    &--imagebox {
+      width: 100%;
+      height: 60vh;
+      @include topRadius($radius-sm);
+      border-bottom-right-radius: 0;
+    }
+  }
+  .authform {
+    padding-inline: 5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .authform {
+    padding-inline: 3rem;
+  }
+  .auth__container {
+    &--imagebox {
+      & .inner {
+        &__text {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .authform {
+    padding-inline: 1rem;
+  }
+
+  .auth__container {
+    &--imagebox {
+      & .inner {
+        &__text {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
